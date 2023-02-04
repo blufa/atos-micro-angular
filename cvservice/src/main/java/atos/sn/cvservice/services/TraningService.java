@@ -1,6 +1,7 @@
 package atos.sn.cvservice.services;
 
-import sn.atos.cv.entites.TrainingEntity;
+
+import atos.sn.cvservice.entites.TrainingEntity;
 
 import java.util.List;
 
@@ -9,5 +10,5 @@ public interface TraningService {
     TrainingEntity editTrainingEntity(TrainingEntity training);
     List<TrainingEntity> getTranings();
     TrainingEntity getTraining(String id);
-    void delete(String id);
+    void deleteTraining(String id);
 }

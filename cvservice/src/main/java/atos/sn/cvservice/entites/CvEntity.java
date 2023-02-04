@@ -13,9 +13,9 @@ import java.util.Set;
 @Document(collection = "Cv")
 public class CvEntity {
     private String id;
-    private Set<String> interestActivities;
+    private Set<String> interestActivitie;
     private CertificateEntity certificate;
-    private SkillEntity skills;
+    private SkillEntity skill;
     private ReferenceEntity reference;
     private LanguageEntity language;
     private WorkExperienceEntity experience;

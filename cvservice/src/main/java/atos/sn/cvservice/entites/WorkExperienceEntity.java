@@ -17,6 +17,6 @@ public class WorkExperienceEntity {
     private Date startDate;
     private Date endDate;
     private String jobTitle;
-    private String taks;
+    private String tak;
     private String certificate;
 }

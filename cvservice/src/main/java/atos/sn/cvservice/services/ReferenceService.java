@@ -1,6 +1,7 @@
 package atos.sn.cvservice.services;
 
-import sn.atos.cv.entites.ReferenceEntity;
+
+import atos.sn.cvservice.entites.ReferenceEntity;
 
 import java.util.List;
 
@@ -9,5 +10,5 @@ public interface ReferenceService {
     ReferenceEntity editReference(ReferenceEntity reference);
     List<ReferenceEntity> getReferences();
     ReferenceEntity getReference(String id);
-    void delete(String id);
+    void deleteReference(String id);
 }

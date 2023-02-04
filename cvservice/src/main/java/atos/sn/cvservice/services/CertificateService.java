@@ -1,6 +1,7 @@
 package atos.sn.cvservice.services;
 
-import sn.atos.cv.entites.CertificateEntity;
+
+import atos.sn.cvservice.entites.CertificateEntity;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface CertificateService {
     List<CertificateEntity> getCertificates();
     CertificateEntity getCertificate(String id);
 
-    void delete(String id);
+    void deleteCertficate(String id);
 }

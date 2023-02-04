@@ -1,7 +1,7 @@
 package atos.sn.cvservice.repositories;
 
+import atos.sn.cvservice.entites.CertificateEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import sn.atos.cv.entites.CertificateEntity;
 
 public interface CertificateRepository extends MongoRepository<CertificateEntity, String> {
 }

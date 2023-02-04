@@ -1,7 +1,7 @@
 package atos.sn.cvservice.repositories;
 
+import atos.sn.cvservice.entites.SkillEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import sn.atos.cv.entites.SkillEntity;
 
 public interface SkillRepository extends MongoRepository<SkillEntity, String> {
 }

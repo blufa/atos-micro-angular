@@ -23,6 +23,6 @@ public class CandidateEntity {
     private String address;
     private String function;
     private String photo;
-    private Map<String, String> socialLinks;
+    private Map<String, String> socialLink;
 
 }

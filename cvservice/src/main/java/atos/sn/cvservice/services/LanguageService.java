@@ -1,6 +1,7 @@
 package atos.sn.cvservice.services;
 
-import sn.atos.cv.entites.LanguageEntity;
+
+import atos.sn.cvservice.entites.LanguageEntity;
 
 import java.util.List;
 
@@ -9,5 +10,5 @@ public interface LanguageService {
     LanguageEntity editLanguage(LanguageEntity language);
     List<LanguageEntity> getLanguages();
     LanguageEntity getLanguage(String id);
-    void delete(String id);
+    void deleteLanguage(String id);
 }

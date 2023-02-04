@@ -1,6 +1,7 @@
 package atos.sn.cvservice.services;
 
-import sn.atos.cv.entites.CandidateEntity;
+
+import atos.sn.cvservice.entites.CandidateEntity;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class CandidateServiceImpl implements CandidateService{
     }
 
     @Override
-    public void delete(String id) {
+    public void deleteCandidate(String id) {
 
     }
 }

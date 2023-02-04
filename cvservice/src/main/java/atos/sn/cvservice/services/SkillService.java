@@ -1,6 +1,7 @@
 package atos.sn.cvservice.services;
 
-import sn.atos.cv.entites.SkillEntity;
+
+import atos.sn.cvservice.entites.SkillEntity;
 
 import java.util.List;
 
@@ -9,5 +10,5 @@ public interface SkillService {
     SkillEntity editSkill(SkillEntity skill);
     List<SkillEntity> getSkills();
     SkillEntity getSkill(String id);
-    void delete(String id);
+    void deleteSkill(String id);
 }

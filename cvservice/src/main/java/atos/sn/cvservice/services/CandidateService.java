@@ -1,6 +1,7 @@
 package atos.sn.cvservice.services;
 
-import sn.atos.cv.entites.CandidateEntity;
+
+import atos.sn.cvservice.entites.CandidateEntity;
 
 import java.util.List;
 
@@ -9,5 +10,5 @@ public interface CandidateService {
     CandidateEntity editCandidate(CandidateEntity candidate);
     List<CandidateEntity> getCandidates();
     CandidateEntity getCandidate(String id);
-    void delete(String id);
+    void deleteCandidate(String id);
 }
