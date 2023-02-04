@@ -1,4 +1,4 @@
-package atos.sn.cvservice.entites;
+package atos.sn.cvservice.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

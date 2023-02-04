@@ -1,9 +1,9 @@
 package atos.sn.cvservice.services;
 
 
-import atos.sn.cvservice.entites.SkillEntity;
-
 import java.util.List;
+
+import atos.sn.cvservice.entities.SkillEntity;
 
 public interface SkillService {
     SkillEntity addSkill(SkillEntity skill);

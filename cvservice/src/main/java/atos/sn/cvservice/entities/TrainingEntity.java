@@ -1,4 +1,4 @@
-package atos.sn.cvservice.entites;
+package atos.sn.cvservice.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,14 +11,16 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "WorkExperience")
-public class WorkExperienceEntity {
+@Document(collection = "Training")
+public class TrainingEntity {
     @Id
     private String id;
-    private String company;
+    private String institution;
+    private String diploma;
+    private String trainingTitle;
     private Date startDate;
     private Date endDate;
-    private String jobTitle;
-    private String task;
-    private String certificate;
+    private Boolean diplomaObtained;
+    private String diplomaScan;
+
 }

@@ -1,9 +1,9 @@
 package atos.sn.cvservice.services;
 
 
-import atos.sn.cvservice.entites.ReferenceEntity;
-
 import java.util.List;
+
+import atos.sn.cvservice.entities.ReferenceEntity;
 
 public interface ReferenceService {
     ReferenceEntity addReference(ReferenceEntity reference);

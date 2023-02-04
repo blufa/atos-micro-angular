@@ -1,9 +1,9 @@
 package atos.sn.cvservice.services;
 
 
-import atos.sn.cvservice.entites.TrainingEntity;
-
 import java.util.List;
+
+import atos.sn.cvservice.entities.TrainingEntity;
 
 public interface TraningService {
     TrainingEntity addTrainingEntity(TrainingEntity training);

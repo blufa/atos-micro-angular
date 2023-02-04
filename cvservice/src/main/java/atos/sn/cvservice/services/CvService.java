@@ -1,9 +1,9 @@
 package atos.sn.cvservice.services;
 
 
-import atos.sn.cvservice.entites.CvEntity;
-
 import java.util.List;
+
+import atos.sn.cvservice.entities.CvEntity;
 
 public interface CvService {
     CvEntity createCvEntity(CvEntity cv);

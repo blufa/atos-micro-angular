@@ -1,7 +1,8 @@
 package atos.sn.cvservice.repositories;
 
-import atos.sn.cvservice.entites.LanguageEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
+
+import atos.sn.cvservice.entities.LanguageEntity;
 
 public interface LanguageRepository extends MongoRepository<LanguageEntity, String> {
 }

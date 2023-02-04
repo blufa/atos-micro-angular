@@ -1,9 +1,9 @@
 package atos.sn.cvservice.services;
 
 
-import atos.sn.cvservice.entites.LanguageEntity;
-
 import java.util.List;
+
+import atos.sn.cvservice.entities.LanguageEntity;
 
 public interface LanguageService {
     LanguageEntity addLanguage(LanguageEntity language);
