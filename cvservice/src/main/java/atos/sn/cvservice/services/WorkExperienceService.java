@@ -1,9 +1,9 @@
 package atos.sn.cvservice.services;
 
 
-import atos.sn.cvservice.entites.WorkExperienceEntity;
-
 import java.util.List;
+
+import atos.sn.cvservice.entities.WorkExperienceEntity;
 
 public interface WorkExperienceService {
     WorkExperienceEntity addWorkExperience(WorkExperienceEntity workExperience);

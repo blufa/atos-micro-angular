@@ -1,7 +1,7 @@
-package atos.sn.cvservice.entites.enums;
+package atos.sn.cvservice.entities.enums;
 
 public enum Level {
     BEGINNER,
     INTERMEDIATE,
-    ADVANCE
+    ADVANCED
 }

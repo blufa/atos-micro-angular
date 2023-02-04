@@ -1,9 +1,9 @@
 package atos.sn.cvservice.services;
 
 
-import atos.sn.cvservice.entites.CertificateEntity;
-
 import java.util.List;
+
+import atos.sn.cvservice.entities.CertificateEntity;
 
 public interface CertificateService {
     CertificateEntity addCertificate(CertificateEntity certificate);
