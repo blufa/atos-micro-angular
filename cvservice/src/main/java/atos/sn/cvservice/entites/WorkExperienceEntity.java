@@ -3,6 +3,7 @@ package atos.sn.cvservice.entites;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -12,11 +13,12 @@ import java.util.Date;
 @NoArgsConstructor
 @Document(collection = "WorkExperience")
 public class WorkExperienceEntity {
+    @Id
     private String id;
     private String company;
     private Date startDate;
     private Date endDate;
     private String jobTitle;
-    private String tak;
+    private String task;
     private String certificate;
 }

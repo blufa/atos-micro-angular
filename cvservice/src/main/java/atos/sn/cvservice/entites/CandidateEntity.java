@@ -16,13 +16,13 @@ public class CandidateEntity {
 
     @Id
     private String id;
-    private String name;
+    private String LastName;
     private String firstName;
     private String phoneNumber;
     private String email;
     private String address;
-    private String function;
+    private String position;
     private String photo;
-    private Map<String, String> socialLink;
+    private Map<String, String> socialLinks;
 
 }

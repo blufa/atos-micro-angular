@@ -15,7 +15,7 @@ import java.util.Date;
 public class TrainingEntity {
     @Id
     private String id;
-    private String instruction;
+    private String institution;
     private String diploma;
     private String trainingTitle;
     private Date startDate;

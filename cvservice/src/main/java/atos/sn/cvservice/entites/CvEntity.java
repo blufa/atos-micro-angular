@@ -3,22 +3,24 @@ package atos.sn.cvservice.entites;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "Cv")
 public class CvEntity {
+    @Id
     private String id;
-    private Set<String> interestActivitie;
-    private CertificateEntity certificate;
-    private SkillEntity skill;
-    private ReferenceEntity reference;
-    private LanguageEntity language;
-    private WorkExperienceEntity experience;
-    private TrainingEntity training;
+    private List<String> interestActivities;
+    private List<CertificateEntity> certificates;
+    private List<SkillEntity> skills;
+    private List<ReferenceEntity> references;
+    private List<LanguageEntity> languages;
+    private List<WorkExperienceEntity> experiences;
+    private List<TrainingEntity> trainings;
 
 }

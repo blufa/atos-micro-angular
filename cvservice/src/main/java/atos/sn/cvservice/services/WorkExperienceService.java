@@ -8,7 +8,7 @@ import java.util.List;
 public interface WorkExperienceService {
     WorkExperienceEntity addWorkExperience(WorkExperienceEntity workExperience);
     WorkExperienceEntity editWorkExperience(WorkExperienceEntity workExperience);
-    List<WorkExperienceEntity> getWorksExperiences();
+    List<WorkExperienceEntity> getWorkExperiences();
 
     WorkExperienceEntity getWorkExperience(String id);
     void deleteWorkExperience(String id);

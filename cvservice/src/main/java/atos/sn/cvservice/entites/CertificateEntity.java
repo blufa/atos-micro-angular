@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "Certificate")
+@Document(collection = "Certification")
 public class CertificateEntity {
     @Id
     private String id;
