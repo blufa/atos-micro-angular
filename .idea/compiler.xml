@@ -9,8 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config-service" />
         <module name="gateway-service" />
-        <module name="cvservice" />
         <module name="userservice" />
+        <module name="cvservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
