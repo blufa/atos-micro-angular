@@ -7,23 +7,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.Map;
 
-@Document(collection = "candidates")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CandidateEntity {
-
+@Document(collection = "users")
+public class UserEntity {
     @Id
     private String id;
-    private String lastName;
-    private String firstName;
-    private String phoneNumber;
-    private String email;
     private String address;
-    private String position;
+    private Date dob;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String password;
+    private String phoneNumber;
+    private String occupation;
     private String photo;
-    private Map<String, String> socialLinks;
-
+    private Map<String, String> contactLinks;
 }
