@@ -12,10 +12,20 @@
         <module name="userservice" />
         <module name="cvservice" />
       </profile>
+      <profile name="Annotation profile for cvservice" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.3.Final/mapstruct-processor-1.5.3.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.3.Final/mapstruct-1.5.3.Final.jar" />
+        </processorPath>
+        <module name="cvservice" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="config-service" target="17" />
-      <module name="cvservice" target="17" />
+      <module name="cvservice" target="1.8" />
       <module name="gateway-service" target="17" />
       <module name="userservice" target="17" />
     </bytecodeTargetLevel>
