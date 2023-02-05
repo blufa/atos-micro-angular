@@ -1,6 +1,5 @@
 package atos.sn.cvservice.services;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,12 +27,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO editUser(UserDTO userDTO) {
+    public UserDTO editUser(UserDTO userDTO, String id) {
         // Check if resume exists before editing
-        Optional<UserEntity> userEntity = userRepository.findById(userDTO.getId());
+        Optional<UserEntity> userEntity = userRepository.findById(id);
 
         if (userEntity.isPresent()) {
-            UserEntity savedUser = userRepository.save(userEntity.get());
+            UserEntity newUserEntity = userMapper.toEntity(userDTO);
+            UserEntity savedUser = userRepository.save(newUserEntity);
             return userMapper.toDto(savedUser);
         }
 
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserEntity> getUsers() {
-        return Collections.<UserEntity>emptyList();
+        return userRepository.findAll();
     }
 
     @Override

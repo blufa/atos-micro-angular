@@ -8,7 +8,7 @@ import atos.sn.cvservice.entities.ResumeEntity;
 public interface ResumeService {
     ResumeDTO addResume(ResumeDTO candidateDTO);
 
-    ResumeDTO editResume(ResumeDTO candidateDTO);
+    ResumeDTO editResume(ResumeDTO candidateDTO, String id);
 
     List<ResumeEntity> getResumes();
 

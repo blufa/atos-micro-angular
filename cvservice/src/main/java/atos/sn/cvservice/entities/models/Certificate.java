@@ -1,18 +1,30 @@
 package atos.sn.cvservice.entities.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import org.bson.types.ObjectId;
-
-import java.util.Date;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Certificate {
     private String name;
-    private Date date;
-    private ObjectId resumeId;
+    private int date;
+
+    public Certificate(String name, int date) {
+        this.name = name;
+        this.date = date;
+    }
+
+    public Certificate() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
+    }
 }

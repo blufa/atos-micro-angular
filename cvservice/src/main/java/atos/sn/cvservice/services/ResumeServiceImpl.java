@@ -27,12 +27,13 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public ResumeDTO editResume(ResumeDTO resumeDTO) {
+    public ResumeDTO editResume(ResumeDTO resumeDTO, String id) {
         // Check if resume exists before editing
-        Optional<ResumeEntity> resumeEntity = resumeRepository.findById(resumeDTO.getId());
+        Optional<ResumeEntity> resumeEntity = resumeRepository.findById(id);
 
         if (resumeEntity.isPresent()) {
-            ResumeEntity savedResume = resumeRepository.save(resumeEntity.get());
+            ResumeEntity newResumeEntity = resumeMapper.toEntity(resumeDTO);
+            ResumeEntity savedResume = resumeRepository.save(newResumeEntity);
             return resumeMapper.toDto(savedResume);
         }
 

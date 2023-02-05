@@ -21,13 +21,13 @@ public class UserController {
     private UserService candidateService;
 
     @PostMapping("/users")
-    public UserDTO addUser(@RequestBody UserDTO candidateDTO) {
-        return candidateService.addUser(candidateDTO);
+    public UserDTO addUser(@RequestBody UserDTO userDTO) {
+        return candidateService.addUser(userDTO);
     }
 
     @PutMapping("/users/{id}")
-    public UserDTO editUser(@PathVariable String id, @RequestBody UserDTO candidateDTO) {
-        return candidateService.editUser(candidateDTO);
+    public UserDTO editUser(@PathVariable String id, @RequestBody UserDTO userDTO) {
+        return candidateService.editUser(userDTO, id);
     }
 
     @GetMapping("/users")

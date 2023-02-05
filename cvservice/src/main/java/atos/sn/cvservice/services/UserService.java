@@ -6,9 +6,9 @@ import atos.sn.cvservice.dto.UserDTO;
 import atos.sn.cvservice.entities.UserEntity;
 
 public interface UserService {
-    UserDTO addUser(UserDTO candidateDTO);
+    UserDTO addUser(UserDTO userDTO);
 
-    UserDTO editUser(UserDTO candidateDTO);
+    UserDTO editUser(UserDTO userDTO, String id);
 
     List<UserEntity> getUsers();
 

@@ -27,7 +27,7 @@ public class ResumeController {
 
     @PutMapping("/resumes/{id}")
     public ResumeDTO editResume(@PathVariable String id, @RequestBody ResumeDTO resumeDTO) {
-        return resumeService.editResume(resumeDTO);
+        return resumeService.editResume(resumeDTO, id);
     }
 
     @GetMapping("/resumes")

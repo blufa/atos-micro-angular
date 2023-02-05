@@ -7,6 +7,6 @@ import atos.sn.cvservice.entities.UserEntity;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    UserEntity toEntity(UserDTO candidateDTO);
-    UserDTO toDto(UserEntity candidateEntity);
+    UserEntity toEntity(UserDTO userDTO);
+    UserDTO toDto(UserEntity userEntity);
 }
