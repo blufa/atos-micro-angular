@@ -7,7 +7,7 @@ import atos.sn.userservice.dto.RegisterRequest;
 
 public interface AuthService {
     LoginResponse login(LoginRequest creadentials);
-    Boolean logout(String creadentials);
+    Boolean logout(TokenDto tokens);
     LoginResponse register(RegisterRequest creadentials);
     TokenDto refreshToken(TokenDto tokens);
     Boolean existsEmail(String email);
