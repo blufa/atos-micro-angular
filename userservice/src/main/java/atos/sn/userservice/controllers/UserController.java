@@ -28,20 +28,14 @@ public class UserController implements UserApi {
 
     @Override
     public ResponseEntity<?> getAllUsers() {
-        Map<String, Object> map = new LinkedHashMap<>();
+        Map<String, Object> map;
         try {
             List<UserEntity> users = this._service.getAllUsers();
-
-            if (users.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-            map.put("status", 200);
-            map.put("data", users);
+            if (users.isEmpty()) {  return new ResponseEntity<>(HttpStatus.NO_CONTENT); }
+            map = Map.of("status", 200,"data", users);
             return new ResponseEntity<>(map, HttpStatus.OK);
         } catch (Exception e) {
-            map.put("status", 500);
-            map.put("data", null);
-            map.put("message", e.getMessage());
+            map = Map.of("status", 500, "data", null, "message", e.getMessage());
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -49,16 +43,13 @@ public class UserController implements UserApi {
     @Override
     public ResponseEntity<?> getUser(String id) {
 
-        Map<String, Object> map = new LinkedHashMap<>();
+        Map<String, Object> map;
         try {
             UserDto user = this._service.getUser(id);
-            map.put("status", 200);
-            map.put("data", user);
+            map = Map.of("status", 200, "data", user);
             return new ResponseEntity<>(map, HttpStatus.OK);
         } catch (Exception e) {
-            map.put("status", 500);
-            map.put("data", null);
-            map.put("message", e.getMessage());
+            map= Map.of("status", 500, "data", null, "message", e.getMessage());
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -66,17 +57,13 @@ public class UserController implements UserApi {
     @Override
     public ResponseEntity<?> updateUser(UserDto user) {
 
-        Map<String, Object> map = new LinkedHashMap<>();
+        Map<String, Object> map;
         try {
             UserDto updatedUser = this._service.updateUser(user);
-            map.put("status", 200);
-            map.put("data", updatedUser);
-            map.put("message", "User updated successfully");
+            map = Map.of("status", 200, "data", updatedUser, "message", "User updated successfully");
             return new ResponseEntity<>(map, HttpStatus.OK);
         } catch (Exception e) {
-            map.put("status", 500);
-            map.put("data", null);
-            map.put("message", e.getMessage());
+            map = Map.of("status", 500, "data", null, "message", e.getMessage());
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
