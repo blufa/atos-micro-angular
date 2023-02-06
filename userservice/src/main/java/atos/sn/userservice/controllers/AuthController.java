@@ -53,11 +53,35 @@ public class AuthController implements AuthApi {
 
     @Override
     public ResponseEntity<?> logout(TokenDto token) {
-        return null;
+        Map<String, Object> map = new LinkedHashMap<>();
+        try {
+            this._service.logout(token);
+            map.put("status", 200);
+            map.put("data", null);
+            map.put("message", "Logout successfully");
+            return new ResponseEntity<>(map, HttpStatus.CREATED);
+        } catch (Exception e) {
+            map.put("status", 500);
+            map.put("data", null);
+            map.put("message", e);
+            return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public ResponseEntity<?> refreshToken(TokenDto token) {
-        return null;
+        Map<String, Object> map = new LinkedHashMap<>();
+        try {
+            TokenDto tokens = this._service.refreshToken(token);
+            map.put("status", 200);
+            map.put("data", tokens);
+            map.put("message", "Tokens refresh successfully");
+            return new ResponseEntity<>(map, HttpStatus.CREATED);
+        } catch (Exception e) {
+            map.put("status", 500);
+            map.put("data", null);
+            map.put("message", e);
+            return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
