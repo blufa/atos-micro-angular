@@ -22,8 +22,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="config-service" options="" />
-      <module name="cvservice" options="" />
+      <module name="config-service" options="-parameters" />
+      <module name="cvservice" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="userservice" options="-parameters" />
     </option>
