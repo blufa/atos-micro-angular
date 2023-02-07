@@ -1,0 +1,4 @@
+<button [disabled]="disabled" [type]="btn.type" [title]="btn.tooltip? btn.tooltip:''" (click)="callBack(btn.func, btn.params)" class="h-full" [class]="btn.class">
+    <i *ngIf="btn.showIcon" [class]="'pi '+ btn.icon" style="font-size: 1.4rem;"></i>
+    <span class="ml-1 font-sm uppercase font-semibold" [ngClass]="{'bg-opacity-40': disabled}" *ngIf="btn.showTitle">{{btn.title}}</span>
+</button>
