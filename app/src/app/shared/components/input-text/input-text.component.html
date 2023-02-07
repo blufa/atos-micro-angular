@@ -1,0 +1,20 @@
+<div class="w-full flex flex-col items-start mb-5">
+    <label *ngIf="label" [for]="name" class="text-white md:text-gray-500 font-medium mb-1">{{label}}</label>
+    <input 
+        [type]="type"
+        [id]="name"
+        [name]="name"
+        [formControl]="control"
+        [placeholder]="placeholder"
+        [readonly]="readonly"
+        [class]="'w-full h-full border border-gray-400 p-3 text-sm rounded-md focus:outline-none focus:text-gray-500 text-gray-500 '+class"
+    />
+    <ng-container *ngIf="control.invalid && control.dirty && control.touched">
+        <div class="flex flex-col justify-start items-start gap-2" *ngFor="let err of control.errors | keyvalue">
+            <small *ngIf="err['key'] === 'required' " class="text-red-400"><b>{{label}}</b> est requis !</small>
+            <small *ngIf="err['key'] === 'minlength' " class="text-red-400"><b>{{label}}</b> doit avoir au minimum <b>{{err['value']['requiredLength']}}</b> caractères !</small>
+            <small *ngIf="err['key'] === 'email' || err['key'] === 'pattern' " class="text-red-400"><b>{{label}}</b> est invalid !</small>
+            <!-- {{err | json}} -->
+        </div>
+    </ng-container>
+</div>
