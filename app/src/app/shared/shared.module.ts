@@ -22,7 +22,8 @@ const sharedComponents = [
 
 @NgModule({
   declarations: [
-    sharedComponents
+    sharedComponents,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
