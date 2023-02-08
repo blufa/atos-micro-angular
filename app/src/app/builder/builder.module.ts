@@ -11,6 +11,7 @@ import { ReferencesFormComponent } from './references-form/references-form.compo
 import { LanguagesFormComponent } from './languages-form/languages-form.component';
 import { ExperiencesFormComponent } from './experiences-form/experiences-form.component';
 import { AwardsHonorsFormComponent } from './awards-honors-form/awards-honors-form.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AwardsHonorsFormComponent } from './awards-honors-form/awards-honors-fo
   ],
   imports: [
     CommonModule,
-    BuilderRoutingModule
+    BuilderRoutingModule,
+    SharedModule
   ]
 })
 export class BuilderModule { }
