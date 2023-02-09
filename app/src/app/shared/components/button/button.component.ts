@@ -9,7 +9,6 @@ import { Button } from '../../interfaces/button';
 export class ButtonComponent implements OnInit {
   @Input() btn: Button;
   @Input() disabled: boolean;
-  constructor() { }
 
   ngOnInit(): void {
     if(!this.disabled){ this.disabled = false;}

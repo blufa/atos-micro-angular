@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    .btnsContainer {
+        display: flex;
+        justify-content: space-between;
+    }
+}

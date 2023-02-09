@@ -1,1 +1,13 @@
-<p>leisures-form works!</p>
+<div class="container">
+    <div class="inputsContainer">
+        <app-input-text type="text" label="Leisure" placeholder="Leisure e.g. Sports" name="leisure"
+            [control]="leisuresControl"></app-input-text>
+    </div>
+
+    <button class="plusBtn">+</button>
+
+    <div class="btnsContainer">
+        <app-button [btn]="backBtn"></app-button>
+        <app-button [btn]="nextBtn"></app-button>
+    </div>
+</div>

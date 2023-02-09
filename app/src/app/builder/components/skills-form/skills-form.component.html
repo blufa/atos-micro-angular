@@ -1,1 +1,18 @@
-<p>skills-form works!</p>
+<div class="container">
+    <div class="inputsContainer">
+        <app-input-text type="text" label="Skill" placeholder="Skill" name="skill"
+            [control]="skillControl"></app-input-text>
+        <select>
+            <option value="BEGINNER">BEGINNER</option>
+            <option value="INTERMEDIATE">INTERMEDIATE</option>
+            <option value="ADVANCED">ADVANCED</option>
+        </select>
+    </div>
+
+    <button class="plusBtn">+</button>
+
+    <div class="btnsContainer">
+        <app-button [btn]="backBtn"></app-button>
+        <app-button [btn]="nextBtn"></app-button>
+    </div>
+</div>

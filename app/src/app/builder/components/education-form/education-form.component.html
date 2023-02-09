@@ -1,1 +1,19 @@
-<p>education-form works!</p>
+<div class="container">
+    <div class="inputsContainer">
+        <app-input-text type="text" label="School Name" placeholder="School Name" name="school-name"
+            [control]="schoolNameControl"></app-input-text>
+        <app-input-text type="text" label="Diploma" placeholder="Diploma" name="diploma"
+            [control]="diplomaControl"></app-input-text>
+        <app-input-text type="date" label="Start Date" placeholder="Start Date" name="start-date"
+            [control]="startDateControl"></app-input-text>
+        <app-input-text type="date" label="End Date" placeholder="End Date" name="end-date"
+            [control]="endDateControl"></app-input-text>
+    </div>
+
+    <button class="plusBtn">+</button>
+
+    <div class="btnsContainer">
+        <app-button [btn]="backBtn"></app-button>
+        <app-button [btn]="nextBtn"></app-button>
+    </div>
+</div>

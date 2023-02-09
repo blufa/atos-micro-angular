@@ -1,1 +1,21 @@
-<p>personal-information-form works!</p>
+<div class="container">
+    <app-input-text type="text" label="First Name" placeholder="First Name" name="first-name"
+        [control]="firstNameControl"></app-input-text>
+    <app-input-text type="text" label="Last Name" placeholder="First Name" name="last-name"
+        [control]="lastNameControl"></app-input-text>
+    <app-input-text type="text" label="Address" placeholder="Address" name="address"
+        [control]="address"></app-input-text>
+    <app-input-text type="text" label="Phone Number" placeholder="Phone Number" name="phone-number"
+        [control]="phoneNumber"></app-input-text>
+    <app-input-text type="text" label="Occupation" placeholder="Occupation" name="occupation"
+        [control]="occupation"></app-input-text>
+    <app-input-text type="text" label="Photo URL" placeholder="Photo URL" name="photo-url"
+        [control]="photoURL"></app-input-text>
+    <app-input-text type="text" label="Contact Links" placeholder="Contact Links" name="contact-links"
+        [control]="contactLinks"></app-input-text>
+
+    <div class="btnsContainer">
+        <app-button [btn]="backBtn"></app-button>
+        <app-button [btn]="nextBtn"></app-button>
+    </div>
+</div>

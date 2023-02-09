@@ -1,1 +1,17 @@
-<p>references-form works!</p>
+<div class="container">
+    <app-input-text type="text" label="Full Name" placeholder="Full Name" name="full-name"
+        [control]="fullNameControl"></app-input-text>
+    <app-input-text type="text" label="Phone Number" placeholder="Phone Number" name="phone-number"
+        [control]="phoneNumberControl"></app-input-text>
+    <app-input-text type="text" label="Email" placeholder="Email" name="email"
+        [control]="emailControl"></app-input-text>
+    <app-input-text type="text" label="Job Title" placeholder="Job Title" name="job-title"
+        [control]="jobTitleControl"></app-input-text>
+    <app-input-text type="text" label="Company" placeholder="Company" name="company"
+        [control]="companyControl"></app-input-text>
+
+    <div class="btnsContainer">
+        <app-button [btn]="backBtn"></app-button>
+        <app-button [btn]="nextBtn"></app-button>
+    </div>
+</div>

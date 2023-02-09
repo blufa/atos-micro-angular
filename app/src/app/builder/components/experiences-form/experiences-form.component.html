@@ -1,1 +1,21 @@
-<p>experiences-form works!</p>
+<div class="container">
+    <app-input-text type="text" label="Company" placeholder="Company" name="company"
+        [control]="companyControl"></app-input-text>
+    <app-input-text type="text" label="Job Title" placeholder="Job Title" name="job-title"
+        [control]="jobTitleControl"></app-input-text>
+    <app-input-text type="text" label="Description" placeholder="Description" name="description"
+        [control]="description"></app-input-text>
+    <app-input-text type="text" label="Accomplishments" placeholder="Accomplishments" name="accomplishments"
+        [control]="accomplishments"></app-input-text>
+    <app-input-text type="text" label="Environment" placeholder="Environment" name="environment"
+        [control]="environment"></app-input-text>
+    <app-input-text type="text" label="Start Date" placeholder="Start Date" name="start-date"
+        [control]="startDate"></app-input-text>
+    <app-input-text type="text" label="End Date" placeholder="End Date" name="end-date"
+        [control]="endDate"></app-input-text>
+
+    <div class="btnsContainer">
+        <app-button [btn]="backBtn"></app-button>
+        <app-button [btn]="nextBtn"></app-button>
+    </div>
+</div>

@@ -1,1 +1,15 @@
-<p>awards-honors-form works!</p>
+<div class="container">
+    <div class="inputsContainer">
+        <app-input-text type="text" label="Award/Honor" placeholder="Award/Honor" name="award-honor"
+            [control]="nameControl"></app-input-text>
+        <app-input-text type="number" label="Year" placeholder="Year" name="year"
+            [control]="yearControl"></app-input-text>
+    </div>
+
+    <button class="plusBtn">+</button>
+
+    <div class="btnsContainer">
+        <app-button [btn]="backBtn"></app-button>
+        <app-button [btn]="nextBtn"></app-button>
+    </div>
+</div>

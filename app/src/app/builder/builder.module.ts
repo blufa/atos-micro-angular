@@ -12,7 +12,7 @@ import { LanguagesFormComponent } from './components/languages-form/languages-fo
 import { ExperiencesFormComponent } from './components/experiences-form/experiences-form.component';
 import { AwardsHonorsFormComponent } from './components/awards-honors-form/awards-honors-form.component';
 import { SharedModule } from '../shared/shared.module';
-import { BuilderFormComponent } from './components/builder-form/builder-form.component';
+import { BuilderFormComponent } from '../builder-form/builder-form.component';
 
 
 @NgModule({
