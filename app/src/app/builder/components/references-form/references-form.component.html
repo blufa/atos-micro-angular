@@ -1,17 +1,19 @@
-<div class="container">
-    <app-input-text type="text" label="Full Name" placeholder="Full Name" name="full-name"
-        [control]="fullNameControl"></app-input-text>
-    <app-input-text type="text" label="Phone Number" placeholder="Phone Number" name="phone-number"
-        [control]="phoneNumberControl"></app-input-text>
-    <app-input-text type="text" label="Email" placeholder="Email" name="email"
-        [control]="emailControl"></app-input-text>
-    <app-input-text type="text" label="Job Title" placeholder="Job Title" name="job-title"
-        [control]="jobTitleControl"></app-input-text>
-    <app-input-text type="text" label="Company" placeholder="Company" name="company"
-        [control]="companyControl"></app-input-text>
+<div class="references">
+    <h2 class="text-white text-lg md:text-gray-500 mb-1">References</h2>
 
-    <div class="btnsContainer">
-        <app-button [btn]="backBtn"></app-button>
-        <app-button [btn]="nextBtn"></app-button>
+    <div class="form">
+        <app-input-text type="text" label="Full Name" name="refFullName" placeholder="Full Name"
+            [control]="refFullNameControl" />
+        <app-input-text type="text" label="Phone Number" name="refPhoneNumber" placeholder="Phone Number"
+            [control]="refPhoneNumberControl" />
+        <app-input-text type="email" name="email" label="Email" name="refEmail" placeholder="Email" [control]="refEmailControl" />
+        <app-input-text type="text" label="Job Title" name="refJobTitle" placeholder="Job Title"
+            [control]="refJobTitleControl" />
+        <app-input-text type="text" label="Company" name="refCompany" placeholder="Company"
+            [control]="refCompanyControl" />
+
+        <button class="remove-category" id="refRemoveBtn">Remove Reference</button>
     </div>
+
+    <button class="add-category">Add Reference</button>
 </div>

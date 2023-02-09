@@ -1,15 +1,13 @@
-<div class="container">
-    <div class="inputsContainer">
-        <app-input-text type="text" label="Certificate" placeholder="Certificate" name="certificate"
-            [control]="certificateControl"></app-input-text>
-        <app-input-text type="number" label="Year" placeholder="Year" name="year"
-            [control]="yearControl"></app-input-text>
+<div class="certifications">
+    <h2 class="text-white text-lg md:text-gray-500 mb-1">Certifications</h2>
+
+    <div class="form form-three">
+        <app-input-text type="text" label="Certificate Name" name="certificateName" placeholder="Certificate Name"
+            [control]="certificateNameControl" />
+        <app-input-text type="text" label="Certificate Year" name="certificateYear" placeholder="Certificate Year"
+            [control]="certificateYearControl" />
+        <button class="remove-category">Remove Certification</button>
     </div>
 
-    <button class="plusBtn">+</button>
-
-    <div class="btnsContainer">
-        <app-button [btn]="backBtn"></app-button>
-        <app-button [btn]="nextBtn"></app-button>
-    </div>
+    <button class="add-category">Add Certification</button>
 </div>

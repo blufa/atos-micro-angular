@@ -1,13 +1,11 @@
-<div class="container">
-    <div class="inputsContainer">
-        <app-input-text type="text" label="Leisure" placeholder="Leisure e.g. Sports" name="leisure"
-            [control]="leisuresControl"></app-input-text>
+<div class="leisures">
+    <h2 class="text-white text-lg md:text-gray-500 mb-1">Leisures</h2>
+
+    <div class="form form-two">
+        <app-input-text type="text" name="link" placeholder="Contact Link (e.g. https://linkedin.com/johndoe)"
+            [control]="leisureControl" />
+        <button class="remove-category">Remove Leisure</button>
     </div>
 
-    <button class="plusBtn">+</button>
-
-    <div class="btnsContainer">
-        <app-button [btn]="backBtn"></app-button>
-        <app-button [btn]="nextBtn"></app-button>
-    </div>
+    <button class="add-category">Add Leisure</button>
 </div>

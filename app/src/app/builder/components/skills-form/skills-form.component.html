@@ -1,18 +1,18 @@
-<div class="container">
-    <div class="inputsContainer">
-        <app-input-text type="text" label="Skill" placeholder="Skill" name="skill"
-            [control]="skillControl"></app-input-text>
-        <select>
-            <option value="BEGINNER">BEGINNER</option>
-            <option value="INTERMEDIATE">INTERMEDIATE</option>
-            <option value="ADVANCED">ADVANCED</option>
-        </select>
+<div class="skills">
+    <h2 class="text-white text-lg md:text-gray-500 mb-1">Skills</h2>
+
+    <div class="form form-three">
+        <app-input-text type="text" label="Skill" name="skill" placeholder="Skill (e.g. Java)"
+            [control]="skillNameControl" />
+
+            <select name="languageLevel" id="languageLevel" [formControl]="skillLevelControl">
+                <option value="BEGINNER">BEGINNER</option>
+                <option value="INTERMEDIATE">INTERMEDIATE</option>
+                <option value="ADVANCED">ADVANCED</option>
+            </select>
+
+        <button class="remove-category">Remove Skill</button>
     </div>
 
-    <button class="plusBtn">+</button>
-
-    <div class="btnsContainer">
-        <app-button [btn]="backBtn"></app-button>
-        <app-button [btn]="nextBtn"></app-button>
-    </div>
+    <button class="add-category">Add Skill</button>
 </div>

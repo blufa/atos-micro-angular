@@ -1,0 +1,18 @@
+<div class="experiences">
+    <h2 class="text-white text-lg md:text-gray-500 mb-1">Work Experiences</h2>
+
+    <div class="form">
+        <app-input-text type="text" label="Company" name="workXCompany" placeholder="Company"
+            [control]="workXCompanyControl" class="workXCompany" />
+        <app-input-text type="text" label="Job Title" name="workXJobTitle" placeholder="Job Title"
+            [control]="workXJobTitleControl" class="workXJobTitle"/>
+        <app-input-text type="text" label="Description" name="workXDescription" placeholder="Description"
+            [control]="workXJobDescritionControl" class="workXDescription"/>
+        <app-input-text type="date" label="Start Date" name="workXStartDate" [control]="workXstartDateControl" class="workXStartDate"/>
+        <app-input-text type="date" label="End Date" name="workXEndDate" [control]="workXendDateControl" class="workXEndDate"/>
+
+        <button class="remove-category">Remove Work Experience</button>
+    </div>
+
+    <button class="add-category">Add Work Experience</button>
+</div>

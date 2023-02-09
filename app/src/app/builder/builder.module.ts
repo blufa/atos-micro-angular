@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BuilderRoutingModule } from './builder-routing.module';
-import { PersonalInformationFormComponent } from './components/personal-information-form/personal-information-form.component';
+import { SharedModule } from '../shared/shared.module';
+import { BuilderFormComponent } from './components/builder-form/builder-form.component';
+import { CandidateFormComponent } from './components/candidate-form/candidate-form.component';
 import { EducationFormComponent } from './components/education-form/education-form.component';
 import { LeisuresFormComponent } from './components/leisures-form/leisures-form.component';
 import { CertificationsFormComponent } from './components/certifications-form/certifications-form.component';
@@ -11,13 +13,13 @@ import { ReferencesFormComponent } from './components/references-form/references
 import { LanguagesFormComponent } from './components/languages-form/languages-form.component';
 import { ExperiencesFormComponent } from './components/experiences-form/experiences-form.component';
 import { AwardsHonorsFormComponent } from './components/awards-honors-form/awards-honors-form.component';
-import { SharedModule } from '../shared/shared.module';
-import { BuilderFormComponent } from '../builder-form/builder-form.component';
+import { WorkExperiencesFormComponent } from './components/work-experiences-form/work-experiences-form.component';
 
 
 @NgModule({
   declarations: [
-    PersonalInformationFormComponent,
+    BuilderFormComponent,
+    CandidateFormComponent,
     EducationFormComponent,
     LeisuresFormComponent,
     CertificationsFormComponent,
@@ -26,7 +28,7 @@ import { BuilderFormComponent } from '../builder-form/builder-form.component';
     LanguagesFormComponent,
     ExperiencesFormComponent,
     AwardsHonorsFormComponent,
-    BuilderFormComponent
+    WorkExperiencesFormComponent,
   ],
   imports: [
     CommonModule,
