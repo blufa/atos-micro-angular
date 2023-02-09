@@ -1,9 +1,9 @@
-spring:
-  application:
-    name: cv-service
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        enabled: true
+#spring:
+#  application:
+#    name: cv-service
+#  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        enabled: true
