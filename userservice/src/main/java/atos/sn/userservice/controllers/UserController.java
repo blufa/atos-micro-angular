@@ -63,7 +63,7 @@ public class UserController implements UserApi {
             map = Map.of("status", 200, "data", updatedUser, "message", "User updated successfully");
             return new ResponseEntity<>(map, HttpStatus.OK);
         } catch (Exception e) {
-            map = Map.of("status", 500, "data", null, "message", e.getMessage());
+            map = Map.of("status", 500, "message", e.getMessage());
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -73,14 +73,10 @@ public class UserController implements UserApi {
         Map<String, Object> map = new LinkedHashMap<>();
         try {
             this._service.deleteUser(id);
-            map.put("status", 201);
-            map.put("data", null);
-            map.put("message", "User deleted successfully");
+            map = Map.of("status", 201, "message", "User deleted successfully");
             return new ResponseEntity<>(map, HttpStatus.OK);
         } catch (Exception e) {
-            map.put("status", 500);
-            map.put("data", null);
-            map.put("message", e.getMessage());
+            map = Map.of("status", 500, "message", e.getMessage());
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
