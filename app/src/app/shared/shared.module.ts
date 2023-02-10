@@ -29,14 +29,10 @@ const sharedComponents = [
 
 @NgModule({
   declarations: [
-<<<<<<< HEAD
     FooterComponent,
     sharedComponents,
     LevelComponent,
     TopbarComponent,
-=======
-    sharedComponents
->>>>>>> feature/front-dashboard-cv
   ],
   imports: [
     CommonModule,
