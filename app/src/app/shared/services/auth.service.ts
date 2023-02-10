@@ -6,7 +6,12 @@ import { tap, catchError, map } from 'rxjs/operators';
 import { HttpService } from './http.service';
 import { NotificationService } from './notification.service';
 
-interface IResponse {access_token: string, token_type: string, expires_in: number, user: User}
+interface IResponse {
+  access_token: string, 
+  token_type: string, 
+  expires_in: number, 
+  user: User
+}
 
 @Injectable({
   providedIn: 'root'
