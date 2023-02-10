@@ -7,16 +7,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextComponent } from './components/input-text/input-text.component';
 import { InputPasswordComponent } from './components/input-password/input-password.component';
 import { ButtonComponent } from './components/button/button.component';
+import { CvCardComponent } from './components/cv-card/cv-card.component';
 
 const sharedComponents = [
     InputTextComponent,
     InputPasswordComponent,
-    ButtonComponent
+    ButtonComponent,
+    CvCardComponent
 ]
 
 @NgModule({
   declarations: [
-    sharedComponents
+    sharedComponents,
+    
   ],
   imports: [
     CommonModule,
@@ -24,6 +27,7 @@ const sharedComponents = [
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-  ]
+  ],
+  exports: [sharedComponents]
 })
 export class SharedModule { }

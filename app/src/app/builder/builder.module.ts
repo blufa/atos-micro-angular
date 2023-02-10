@@ -11,6 +11,7 @@ import { ReferencesFormComponent } from './references-form/references-form.compo
 import { LanguagesFormComponent } from './languages-form/languages-form.component';
 import { ExperiencesFormComponent } from './experiences-form/experiences-form.component';
 import { AwardsHonorsFormComponent } from './awards-honors-form/awards-honors-form.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 @NgModule({
@@ -23,11 +24,13 @@ import { AwardsHonorsFormComponent } from './awards-honors-form/awards-honors-fo
     ReferencesFormComponent,
     LanguagesFormComponent,
     ExperiencesFormComponent,
-    AwardsHonorsFormComponent
+    AwardsHonorsFormComponent, 
+    LandingPageComponent
   ],
   imports: [
     CommonModule,
     BuilderRoutingModule
-  ]
+  ],
+  exports:[LandingPageComponent]
 })
 export class BuilderModule { }
