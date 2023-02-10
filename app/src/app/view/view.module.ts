@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ViewRoutingModule } from './view-routing.module';
 import { ResumeViewComponent } from './resume-view/resume-view.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ResumeViewComponent } from './resume-view/resume-view.component';
   ],
   imports: [
     CommonModule,
-    ViewRoutingModule
+    ViewRoutingModule,
+    SharedModule
   ]
 })
 export class ViewModule { }

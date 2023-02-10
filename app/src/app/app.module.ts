@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuilderModule } from './builder/builder.module';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
+import { LandingPageComponent } from './builder/landing-page/landing-page.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
