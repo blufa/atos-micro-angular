@@ -1,39 +1,37 @@
 import { User } from '../interfaces/user';
+import { HttpService } from './http.service';
+import { NotificationService } from './notification.service';
+import { UserLoggedIn } from '../interfaces/user-logged-in';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { tap, catchError, map } from 'rxjs/operators';
-import { HttpService } from './http.service';
-import { NotificationService } from './notification.service';
+import { tap, map, catchError } from 'rxjs/operators';
 
 interface IResponse {
-  access_token: string, 
-  token_type: string, 
-  expires_in: number, 
-  user: User
+  status: number;
+  data: UserLoggedIn,
+  message: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly ACCESS_TOKEN = 'ACCESS_TOKEN';
-  private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private readonly USER_INFOS = 'USER_INFOS';
   private readonly url = 'auth';
 
   constructor(
     private _http: HttpService,
-    private notify: NotificationService,
-    private router: Router
+    private _notify: NotificationService,
+    private _router: Router
   ) { }
 
   login = (data: { login: string, password: string }): Observable<boolean> => {
     return this._http.addData(`${this.url}/login`, data)
       .pipe(
         tap((res: IResponse) => {
-          this.doLoginUser(res.user, res.access_token, res.access_token);
-          this.notify.success(`Bienvenue ${res.user.firstName} ${res.user.lastName} !`, "Success : ");
+          this.doLoginUser(res.data);
+          this._notify.success(`Bienvenue ${res.data.firstName} ${res.data.lastName} !`, "Success : ");
         }),
         map(()=>true),
         catchError(error => {
@@ -45,7 +43,7 @@ export class AuthService {
             message = error?.error?.error ? error?.error?.error : "Connexion échouée, u;ne erreur est survenue"
           }
           console.log(error);
-          this.notify.error(message, "Erreur : ");
+          this._notify.error(message, "Erreur : ");
           return of(false);
         }));
   }
@@ -55,9 +53,9 @@ export class AuthService {
       .pipe(
         tap(() => {
           this.doLogoutUser();
-          this.router.navigateByUrl('/login').then()
+          this._router.navigateByUrl('/').then()
         }),
-        mapTo(true),
+        map(()=>true),
         catchError(error => {
           console.log(error)
           return of(false);
@@ -66,39 +64,46 @@ export class AuthService {
 
   isLoggedIn = (): boolean => { return !!this.getAccessToken(); }
 
-  refreshToken = (): Observable<IResponse> => {
+  refreshToken = (): Observable<{userId: string, accessToken: string, refreshToken: string }> => {
     return this._http.addData(`${this.url}/refresh`, { token: this.getRefreshToken() })
       .pipe(
-        tap((res: IResponse) => {
-        this.storeAcessToken(res.access_token);
+        tap((res: {userId: string, accessToken: string, refreshToken: string }) => {
+        this.storeAcessToken(res.accessToken);
       }));
   }
 
-  getAccessToken = (): string|null => { return localStorage.getItem(this.ACCESS_TOKEN); }
+  getAccessToken = (): string|undefined => { 
+    return this.getUserLoggedIn()?.accessToken; 
+  }
 
-  getRefreshToken = (): string|null => { return localStorage.getItem(this.REFRESH_TOKEN); }
+  getRefreshToken = (): string|undefined => { 
+    return this.getUserLoggedIn()?.refreshToken; 
+  }
 
-  getUserLoggedIn = (): User|null => {
+  getUserLoggedIn = (): UserLoggedIn|null => {
     const userInfos = localStorage.getItem(this.USER_INFOS);
 
     if (userInfos) {
-      const user: User = JSON.parse(userInfos);
+      const user: UserLoggedIn = JSON.parse(userInfos);
       return user;
     }
      return null
   }
 
-  private storeAcessToken = (access_token: string): void => { localStorage.setItem(this.ACCESS_TOKEN, access_token); }
+  private storeAcessToken = (accessToken: string): void => { 
+    const userInfos = localStorage.getItem(this.USER_INFOS);
+    if (userInfos) {
+      let user: UserLoggedIn = JSON.parse(userInfos);
+      user = {...user, accessToken: accessToken}
+      localStorage.setItem(this.USER_INFOS, JSON.stringify(user)); 
+    }
+  }
 
-  private doLoginUser = (user: User, access_token: string, refresh_token: string): void => {
-    localStorage.setItem(this.ACCESS_TOKEN, access_token);
-    localStorage.setItem(this.REFRESH_TOKEN, refresh_token);
+  private doLoginUser = (user: UserLoggedIn): void => {
     localStorage.setItem(this.USER_INFOS, JSON.stringify(user));
   }
 
   private doLogoutUser = (): void => {
-    localStorage.removeItem(this.ACCESS_TOKEN);
-    localStorage.removeItem(this.REFRESH_TOKEN);
     localStorage.removeItem(this.USER_INFOS);
   }
 }

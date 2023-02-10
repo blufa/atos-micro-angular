@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Link } from '../../interfaces/link';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'topbarComponent',
@@ -10,7 +11,7 @@ export class TopbarComponent implements OnInit {
   links: Array<Link>;
   authLinks: Array<Link>;
   isAuth: boolean;
-  constructor() {}
+  constructor(private _authService: AuthService) {}
 
   ngOnInit(): void {
     this.isAuth = false;
@@ -25,7 +26,7 @@ export class TopbarComponent implements OnInit {
         label: 'Mes Cvs',
         url: '',
         icon: 'bx bx-id-card text-xl',
-        visible: true,
+        visible: this._authService.isLoggedIn(),
       },
     ]
     this.authLinks = [
@@ -34,19 +35,19 @@ export class TopbarComponent implements OnInit {
         label: 'Se connecter',
         url: 'auth/sing-in',
         icon: 'bx bx-log-in-circle text-xl',
-        visible: true,
+        visible: !this._authService.isLoggedIn(),
       },
       {
         label: 'S\'inscrire',
         url: 'auth/sing-up',
         icon: 'bx bx-user-plus text-xl',
-        visible: true,
+        visible: !this._authService.isLoggedIn(),
       },
       {
         label: 'Se déconnecter',
         url: '',
         icon: 'bx bx-log-out-circle text-xl',
-        visible: false,
+        visible: this._authService.isLoggedIn(),
       },
     ]
   }
