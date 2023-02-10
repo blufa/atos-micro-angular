@@ -15,6 +15,7 @@ import { ExperiencesFormComponent } from './components/experiences-form/experien
 import { AwardsHonorsFormComponent } from './components/awards-honors-form/awards-honors-form.component';
 import { WorkExperiencesFormComponent } from './components/work-experiences-form/work-experiences-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BuilderRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class BuilderModule { }
