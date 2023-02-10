@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col items-start mb-5">
+<div class="w-full flex flex-col items-start mb-4">
     <label *ngIf="label" [for]="name" class="text-white md:text-gray-500 font-medium mb-1">{{label}}</label>
     <input 
         [type]="type"
@@ -7,7 +7,7 @@
         [formControl]="control"
         [placeholder]="placeholder"
         [readonly]="readonly"
-        [class]="'w-full h-full border border-gray-400 p-3 text-sm rounded-md focus:outline-none focus:text-gray-500 text-gray-500 '+class"
+        [class]="'w-full h-full border border-gray-200 p-3 text-sm rounded-md focus:outline-none focus:text-gray-500 text-gray-500 '+class"
     />
     <ng-container *ngIf="control.invalid && control.dirty && control.touched">
         <div class="flex flex-col justify-start items-start gap-2" *ngFor="let err of control.errors | keyvalue">

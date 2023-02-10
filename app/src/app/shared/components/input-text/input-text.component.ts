@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-text',
+  selector: 'inputTextComponent',
   templateUrl: './input-text.component.html',
   styleUrls: ['./input-text.component.scss']
 })

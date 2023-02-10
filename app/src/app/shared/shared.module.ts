@@ -10,7 +10,11 @@ import { ButtonComponent } from './components/button/button.component';
 import { CvCardComponent } from './components/cv-card/cv-card.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
+import { ResumeComponent } from './components/resume/resume.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { LevelComponent } from './components/level/level.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { SocialIconCircleComponent } from './components/social-icon-circle/social-icon-circle.component';
 
 const sharedComponents = [
     InputTextComponent,
@@ -18,13 +22,20 @@ const sharedComponents = [
     ButtonComponent,
     CvCardComponent,
     LayoutComponent,
-    FooterComponent,
-    HeaderComponent
+    ResumeComponent,
+    ExperienceComponent,
+    SocialIconCircleComponent
 ]
 
 @NgModule({
   declarations: [
+    FooterComponent,
     sharedComponents,
+<<<<<<< HEAD
+=======
+    LevelComponent,
+    TopbarComponent,
+>>>>>>> 34bc652 (commit du 10-02-2023)
   ],
   imports: [
     CommonModule,

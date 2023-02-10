@@ -1,0 +1,54 @@
+<div class="w-full flex flex-col justify-start items-start gap-3">
+    <div class="w-full flex flex-col justify-start items-start">
+        <div class="w-full flex justify-between items-center">
+            <h1 class="text-sm text-gray-700 font-bold w-full">Ingenieur logiciel</h1>
+            <span class="text-[0.75rem] w-[40%] text-end text-blue-500 font-medium">de 06-2020 à 12-2020</span>
+        </div>
+        <h3 class="w-full text-[0.8rem] text-blue-500 font-medium ">Le nom de la compagny</h3>
+    </div>
+    <p class="text-[0.85rem] font-[500] text-gray-500 mt-[-0.4rem]">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim hic quibusdam ab.
+    </p>
+    <div *ngIf="true" class="">
+        <h1 class="text-blue-400 font-medium text-sm">Réalisations</h1>
+        <ul class="w-full mt-2">
+            <li class="w-full text-xs font-medium text-gray-500 mb-2 flex justify-start items-center gap-2">
+                <i class='bx bxs-square-rounded text-[9px] text-gray-300'></i>
+                <span> Lorem ipsum dolor sit amet.</span>
+            </li>
+            <li class="w-full text-xs font-medium text-gray-500 mb-2 flex justify-start items-center gap-2">
+                <i class='bx bxs-square-rounded text-[9px] text-gray-300'></i>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing.
+                </span>
+            </li>
+            <li class="w-full text-xs font-medium text-gray-500 mb-2 flex justify-start items-center gap-2">
+                <i class='bx bxs-square-rounded text-[9px] text-gray-300'></i>
+                <span>Lorem ipsum dolor sit.
+                </span>
+            </li>
+            <li class="w-full text-xs font-medium text-gray-500 mb-2 flex justify-start items-center gap-2">
+                <i class='bx bxs-square-rounded text-[9px] text-gray-300'></i>
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis!
+                </span>
+            </li>
+            <li class="w-full text-xs font-medium text-gray-500 mb-2 flex justify-start items-center gap-2">
+                <i class='bx bxs-square-rounded text-[9px] text-gray-300'></i>
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </span>
+            </li>
+            <li class="w-full text-xs font-medium text-gray-500 mb-2 flex justify-start items-center gap-2">
+                <i class='bx bxs-square-rounded text-[9px] text-gray-300'></i>
+                <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, veritatis?
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="true" class="w-full">
+        <h1 class="text-blue-400 font-medium text-sm">Environnements</h1>
+        <div class="">
+            <span class="text-xs font-medium text-gray-500" *ngFor="let environment of environments, let i = index">
+                {{environment}} <span *ngIf="i !== environments.length-1">, </span>
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="w-full flex justify-start items-start bg-white">
+    <div [class]="'w-[17rem] h-full bg-gray-300 top-0'" [ngStyle]="style">
+        <div class="w-full mb-[3.5rem] relative p-5 py-10 flex flex-col justify-start items-center h-[11rem] bg-blue-500 gap-4 rounded-b-[1.5rem]">
+            <h1 class="w-full text-xl flex justify-center items-center text-md font-semibold text-gray-50 capitalize">{{resume.user.firstName}} <span class="uppercase ml-3">{{resume.user.lastName}}</span></h1>
+            <div class=" absolute bottom-[-20%] flex items-center rounded-full w-[8rem]">
+                <img [src]="resume.user.photo" alt="Profile" class="w-full h-full rounded-full" />
+            </div>
+        </div>
+        <div class="w-full h-fullflex flex-col justify-start items-start gap-5 p-4">
+            <h1 class="w-full text-md font-bold text-blue-500">Informations personnelles</h1>
+            <hr class="border-gray-400 my-3">
+            <div class="w-full flex flex-col justify-start ietms-start gap-4">
+                <div class="w-full flex justify-start items-center gap-3">
+                    <i class='bx bx-user mr-2 text-xl'></i>
+                    <h2 class="capitalize text-sm font-medium text-gray-600">{{resume.user.firstName}} {{resume.user.lastName}}</h2>
+                </div>
+                <div class="w-full flex justify-start items-center gap-3">
+                    <i class='bx bx-envelope mr-2 text-xl'></i>
+                    <h2 class="lowercase text-sm font-medium text-gray-600">{{resume.user.email}}</h2>
+                </div>
+                <div class="w-full flex justify-start items-center gap-3">
+                    <i class='bx bx-phone mr-2 text-xl'></i>
+                    <h2 class="capitalize text-sm font-medium text-gray-600">{{resume.user.phoneNumber}}</h2>
+                </div>
+                <div *ngIf="resume?.user?.dob" class="w-full flex justify-start items-center gap-3">
+                    <i class='bx bxs-baby-carriage mr-2 text-xl' ></i>
+                    <h2 class="capitalize text-sm font-medium text-gray-600">{{resume.user.dob}}</h2>
+                </div>
+                <div class="w-full flex justify-start items-center gap-3">
+                    <i class='bx bx-street-view mr-2 text-xl'></i>
+                    <h2 class="capitalize text-sm font-medium text-gray-600">{{resume.user.address}}</h2>
+                </div>
+            </div>
+            <h1 class="w-full text-md font-bold text-blue-500 mt-8">Compétences</h1>
+            <hr class="border-gray-400 my-3">
+            <div class="w-full flex flex-col justify-start ietms-start gap-4">
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">Competence 1</h2>
+                    <div>
+                        <levelComponent level="BEGINNER"></levelComponent>
+                    </div>
+                </div>
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">Competence 2</h2>
+                    <div>
+                        <levelComponent level="ADVANCED"></levelComponent>
+                    </div>
+                </div>
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">Competence 3</h2>
+                    <div>
+                        <levelComponent level="INTERMEDIATE"></levelComponent>
+                    </div>
+                </div>
+            </div>
+            <h1 class="w-full text-md font-bold text-blue-500 mt-8">Qualitées</h1>
+            <hr class="border-gray-400 my-3">
+            <div class="w-full flex flex-col justify-start ietms-start gap-4">
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">Competence 1</h2>
+                </div>
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">Competence 2</h2>
+                </div>
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">Competence 3</h2>
+                </div>
+            </div>
+            <h1 class="w-full text-md font-bold text-blue-500 mt-8">Centres d'intérêt</h1>
+            <hr class="border-gray-400 my-3">
+            <div class="w-full flex flex-col justify-start ietms-start gap-4">
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">centre int 1</h2>
+                </div>
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">centre int 2</h2>
+                </div>
+                <div class="w-full flex justify-between items-center gap-3">
+                    <h2 class="lowercase text-sm font-medium text-gray-600">centre int 3</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div #cont class="w-[calc(100%-17rem)] flex flex-col justify-start items-start gap-2 p-4">
+        <div class="w-full flex flex-col py-3">
+            <h1 class="w-full text-md font-bold text-blue-500">Profil {{contentHeight}}</h1>
+            <hr class="border-gray-400 my-2">
+            <div class="w-full pt-2">
+                <p class="text-sm leading-6 text-gray-600 font-medium">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste repellat ratione nemo aliquid rerum mollitia? Iusto sapiente ullam fugiat commodi!
+                </p>
+            </div>
+        </div>
+        <div class="w-full flex flex-col pb-3">
+            <h1 class="w-full text-md font-bold text-blue-500">Expériences professionnelles</h1>
+            <hr class="border-gray-400 my-2">
+            <div class="w-full flex flex-col justify-start items-start gap-5">
+               <experienceComponent [experience]="experience"></experienceComponent>
+               <experienceComponent [experience]="experience"></experienceComponent>
+               <experienceComponent [experience]="experience"></experienceComponent>
+               <experienceComponent [experience]="experience"></experienceComponent>
+            </div>
+        </div>
+    </div>
+</div>
+

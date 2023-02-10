@@ -1,0 +1,12 @@
+<div *ngIf="level === 'BEGINNER'" class="flex justify-start items-center gap-1">
+    <i *ngFor="let item of [1,2]" class='bx bxs-message-square-check text-xs text-blue-500'></i>
+    <i *ngFor="let item of [1,2,3,4]" class='bx bx-message-square-check text-xs text-blue-500'></i>
+</div>
+
+<div *ngIf="level === 'INTERMEDIATE'" class="flex justify-start items-center gap-1">
+    <i *ngFor="let item of [1,2, 3,4]" class='bx bxs-message-square-check text-xs text-blue-500'></i>
+    <i *ngFor="let item of [1,2]" class='bx bx-message-square-check text-xs text-blue-500'></i>
+</div>
+<div *ngIf="level === 'ADVANCED'" class="flex justify-start items-center gap-1">
+    <i *ngFor="let item of [1,2,3,4,5,6]" class='bx bxs-message-square-check text-xs text-blue-500'></i>
+</div>
