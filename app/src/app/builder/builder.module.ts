@@ -11,7 +11,7 @@ import { ReferencesFormComponent } from './references-form/references-form.compo
 import { LanguagesFormComponent } from './languages-form/languages-form.component';
 import { ExperiencesFormComponent } from './experiences-form/experiences-form.component';
 import { AwardsHonorsFormComponent } from './awards-honors-form/awards-honors-form.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -25,12 +25,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     LanguagesFormComponent,
     ExperiencesFormComponent,
     AwardsHonorsFormComponent, 
-    LandingPageComponent
   ],
   imports: [
     CommonModule,
-    BuilderRoutingModule
-  ],
-  exports:[LandingPageComponent]
+    BuilderRoutingModule,
+    SharedModule
+  ]
 })
 export class BuilderModule { }
