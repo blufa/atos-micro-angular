@@ -9,21 +9,28 @@ import { InputPasswordComponent } from './components/input-password/input-passwo
 import { ButtonComponent } from './components/button/button.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
+import { ResumeComponent } from './components/resume/resume.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { LevelComponent } from './components/level/level.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { SocialIconCircleComponent } from './components/social-icon-circle/social-icon-circle.component';
 
 const sharedComponents = [
     InputTextComponent,
     InputPasswordComponent,
     ButtonComponent,
     LayoutComponent,
-    FooterComponent,
-    HeaderComponent
+    ResumeComponent,
+    ExperienceComponent,
+    SocialIconCircleComponent
 ]
 
 @NgModule({
   declarations: [
+    FooterComponent,
     sharedComponents,
-    HeaderComponent
+    LevelComponent,
+    TopbarComponent,
   ],
   imports: [
     CommonModule,

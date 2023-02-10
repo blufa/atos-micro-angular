@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Button } from '../../interfaces/button';
 
 @Component({
-  selector: 'app-button',
+  selector: 'buttonComponent',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })

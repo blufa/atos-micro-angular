@@ -1,0 +1,28 @@
+<div class="w-full h-full flex items-center">
+    <div class="w-[16rem] cursor-pointer">
+        <a routerLink="/"><img src="../../../../assets/images/cv.webp" class="w-10" alt=""></a>
+    </div>
+    <div class="w-full h-full flex items-center justify-between">
+        <div class="">
+            <ul class="flex justify-start items-center gap-10">
+                <li  *ngFor="let link of links">
+                    <a *ngIf="link.visible" class="flex justify-start items-end gap-2 text-gray-100 hover:text-gray-200 font-medium text-sm leading-6 uppercase" routerLinkActive="active" routerLinkActive="active"  [routerLink]="link.url">
+                        <i [class]="link?.icon"></i>
+                        <span>{{link.label}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="">
+            <ul class="flex justify-start items-center gap-4">
+                <li class="" routerLinkActive="active" *ngFor="let link of authLinks">
+                    
+                    <a *ngIf="link.visible" class="flex rounded-[5px] bg-gray-50 px-3 py-[0.2rem] text-sm text-blue-500 justify-start items-center gap-2 hover:shadow-md hover:bg-gray-100" routerLinkActive="active"  [routerLink]="link.url">
+                        <i [class]="link?.icon"></i>
+                        <span>{{link.label}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

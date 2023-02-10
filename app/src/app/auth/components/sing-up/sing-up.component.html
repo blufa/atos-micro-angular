@@ -1,0 +1,51 @@
+<div class="w-full flex justify-between items-center mx-auto bg-white p-4 px-14 gap-5 min-h-[calc(100vh-7.5rem)]">
+    <div class="w-4/6 flex-col justify-start items-center">
+        <h1 class="w-full text-center text-3xl text-gray-500 font-bold leading-10">Inscription</h1>
+        <p class="w-full text-center text-sm font-normal text-gray-400 leading-6 mb-7">Veillez vous inscrire pour créer un espace personnel !</p>
+        <form class="w-full" [formGroup]="singUpForm" (ngSubmit)="onSubmit()">
+            <div class="flex gap-2">
+                <div class="w-full">
+                    <inputTextComponent
+                        [control]="firstName" 
+                        placeholder="Prénom..."
+                        label="Prénom"
+                        name="firstName"
+                    ></inputTextComponent>
+                </div>
+                <div class="w-full">
+                    <inputTextComponent
+                        [control]="lastName" 
+                        placeholder="Nom..."
+                        label="Nom"
+                        name="lastName"
+                    ></inputTextComponent>
+                </div>
+            </div>
+            <div class="w-full flex gap-2">
+                <div class="w-full">
+                    <inputTextComponent
+                        [control]="email" 
+                        placeholder="Email..."
+                        label="Email"
+                        name="email"
+                    ></inputTextComponent>
+                </div>
+                <div class="w-full">
+                    <inputPasswordComponent
+                        [control]="password" 
+                        placeholder="Mot de passe..."
+                        label="Mot de passe"
+                        name="password"
+                        ></inputPasswordComponent>
+                </div>
+            </div>
+            <div class="w-full mt-3">
+                <buttonComponent [disabled]="singUpForm.invalid" [btn]="button"></buttonComponent>
+            </div>
+            <div class="md:mb-10"></div>
+          </form>
+    </div>
+    <div class="w-2/6 flex items-center justify-center">
+        <img src="../../../assets/images/sing_up.svg" class="w-full" alt="">
+    </div>
+</div>
