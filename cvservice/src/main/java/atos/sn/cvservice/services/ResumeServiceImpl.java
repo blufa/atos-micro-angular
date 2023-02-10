@@ -10,8 +10,10 @@ import atos.sn.cvservice.dto.ResumeDTO;
 import atos.sn.cvservice.entities.ResumeEntity;
 import atos.sn.cvservice.mappers.ResumeMapper;
 import atos.sn.cvservice.repositories.ResumeRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ResumeServiceImpl implements ResumeService {
     @Autowired
     private ResumeRepository resumeRepository;

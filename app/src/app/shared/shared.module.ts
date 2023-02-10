@@ -12,14 +12,13 @@ import { CvCardComponent } from './components/cv-card/cv-card.component';
 const sharedComponents = [
     InputTextComponent,
     InputPasswordComponent,
-    ButtonComponent,
-    CvCardComponent
+    ButtonComponent
 ]
 
 @NgModule({
   declarations: [
     sharedComponents,
-    
+    CvCardComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +27,6 @@ const sharedComponents = [
     FormsModule,
     HttpClientModule,
   ],
-  exports: [sharedComponents]
+  exports: [CvCardComponent]
 })
 export class SharedModule { }

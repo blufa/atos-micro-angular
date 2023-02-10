@@ -6,17 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuilderModule } from './builder/builder.module';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
     BuilderModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
