@@ -7,14 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextComponent } from './components/input-text/input-text.component';
 import { InputPasswordComponent } from './components/input-password/input-password.component';
 import { ButtonComponent } from './components/button/button.component';
+import { CvCardComponent } from './components/cv-card/cv-card.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
 
 const sharedComponents = [
     InputTextComponent,
     InputPasswordComponent,
     ButtonComponent,
+    CvCardComponent
     LayoutComponent,
     FooterComponent,
     HeaderComponent
@@ -23,7 +24,6 @@ const sharedComponents = [
 @NgModule({
   declarations: [
     sharedComponents,
-    HeaderComponent
   ],
   imports: [
     CommonModule,
