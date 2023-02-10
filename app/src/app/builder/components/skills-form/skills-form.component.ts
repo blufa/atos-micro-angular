@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-skills-form',
@@ -7,6 +7,20 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./skills-form.component.scss']
 })
 export class SkillsFormComponent {
-  skillNameControl: FormControl = new FormControl("", Validators.required);
-  skillLevelControl: FormControl = new FormControl("BEGINNER", Validators.required);
+  @Input() form: FormArray;
+
+  getControl(control: AbstractControl | null): FormControl {
+    return control as FormControl;
+  }
+
+  addSkill(): void {
+    this.form.push(new FormGroup({
+      name: new FormControl("", [Validators.required, Validators.minLength(2)]),
+      level: new FormControl("BEGINNER", [Validators.required])
+    }));
+  }
+
+  removeSkill(index: number): void {
+    this.form.removeAt(index);
+  }
 }

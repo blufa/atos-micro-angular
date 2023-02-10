@@ -1,11 +1,11 @@
 <div class="leisures">
     <h2 class="text-white text-lg md:text-gray-500 mb-1">Leisures</h2>
 
-    <div class="form form-two">
-        <app-input-text type="text" name="link" placeholder="Contact Link (e.g. https://linkedin.com/johndoe)"
-            [control]="leisureControl" />
-        <button class="remove-category">Remove Leisure</button>
+    <div class="form form-two" *ngFor="let leisure of form.controls; let i = index">
+        <app-input-text type="text" name="link" placeholder="Leisure (e.g. Sport)"
+            [control]="getControl(leisure)" />
+        <button class="remove-category" type="button" (click)="removeLeisure(i)">Remove Leisure</button>
     </div>
 
-    <button class="add-category">Add Leisure</button>
+    <button class="add-category" type="button" (click)="addLeisure()">Add Leisure</button>
 </div>

@@ -20,11 +20,11 @@
 
     <h3 class="text-white text-sm md:text-gray-500 mb-1">External Links</h3>
 
-    <div class="form form-two">
+    <div class="form form-two" *ngFor="let link of externalLinks.controls; let i = index">
         <app-input-text type="text" name="link" placeholder="External Link (e.g. https://linkedin.com/johndoe)"
-            [control]="linkControl" />
-        <button class="remove-category">Remove External Link</button>
+            [control]="getControl(link)" />
+        <button class="remove-category" type="button" (click)="removeExternalLink(i)">Remove External Link</button>
     </div>
 
-    <button class="add-category">Add External Link</button>
+    <button class="add-category" type="button" (click)="addExternalLink()">Add External Link</button>
 </div>

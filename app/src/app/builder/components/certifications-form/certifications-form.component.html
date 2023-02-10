@@ -1,13 +1,13 @@
 <div class="certifications">
     <h2 class="text-white text-lg md:text-gray-500 mb-1">Certifications</h2>
 
-    <div class="form form-three">
+    <div class="form form-three" *ngFor="let certification of form.controls; let i = index">
         <app-input-text type="text" label="Certificate Name" name="certificateName" placeholder="Certificate Name"
-            [control]="certificateNameControl" />
+            [control]="getControl(certification.get('name'))" />
         <app-input-text type="text" label="Certificate Year" name="certificateYear" placeholder="Certificate Year"
-            [control]="certificateYearControl" />
-        <button class="remove-category">Remove Certification</button>
+            [control]="getControl(certification.get('year'))" />
+        <button class="remove-category" (click)="removeCertification(i)" type="button">Remove Certification</button>
     </div>
 
-    <button class="add-category">Add Certification</button>
+    <button class="add-category" (click)="addCertification()" type="button">Add Certification</button>
 </div>

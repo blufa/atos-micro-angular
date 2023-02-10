@@ -1,16 +1,16 @@
 <div class="education">
     <h2 class="text-white text-lg md:text-gray-500 mb-1">Education</h2>
 
-    <div class="education-form form">
+    <div class="education-form form" *ngFor="let school of form.controls; let i = index">
         <app-input-text type="text" label="School Name" name="schoolName" placeholder="School Name"
-            [control]="schoolNameControl" />
+            [control]="getControl(school.get('schoolName'))" />
         <app-input-text type="text" label="Diploma" name="diplomaName" placeholder="Diploma"
-            [control]="diplomaControl" />
-        <app-input-text type="date" label="Start Date" name="startDate" [control]="startDateControl" />
-        <app-input-text type="date" label="End Date" name="endDate" [control]="endDateControl" />
+            [control]="getControl(school.get('diploma'))" />
+        <app-input-text type="date" label="Start Date" name="startDate" [control]="getControl(school.get('startDate'))" />
+        <app-input-text type="date" label="End Date" name="endDate" [control]="getControl(school.get('endDate'))" />
 
-        <button class="remove-category">Remove Education</button>
+        <button class="remove-category" type="button" (click)="removeEducation(i)">Remove Education</button>
     </div>
 
-    <button class="add-category">Add Education</button>
+    <button class="add-category" type="button" (click)="addEducation()">Add Education</button>
 </div>

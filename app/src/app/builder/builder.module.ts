@@ -14,6 +14,7 @@ import { LanguagesFormComponent } from './components/languages-form/languages-fo
 import { ExperiencesFormComponent } from './components/experiences-form/experiences-form.component';
 import { AwardsHonorsFormComponent } from './components/awards-honors-form/awards-honors-form.component';
 import { WorkExperiencesFormComponent } from './components/work-experiences-form/work-experiences-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import { WorkExperiencesFormComponent } from './components/work-experiences-form
   imports: [
     CommonModule,
     BuilderRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BuilderModule { }

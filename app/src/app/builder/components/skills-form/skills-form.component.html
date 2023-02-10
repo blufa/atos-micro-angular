@@ -1,18 +1,18 @@
 <div class="skills">
     <h2 class="text-white text-lg md:text-gray-500 mb-1">Skills</h2>
 
-    <div class="form form-three">
+    <div class="form form-three" *ngFor="let skill of form.controls; let i = index">
         <app-input-text type="text" label="Skill" name="skill" placeholder="Skill (e.g. Java)"
-            [control]="skillNameControl" />
+            [control]="getControl(skill.get('name'))" />
 
-            <select name="languageLevel" id="languageLevel" [formControl]="skillLevelControl">
+            <select name="languageLevel" id="languageLevel" [formControl]="getControl(skill.get('level'))">
                 <option value="BEGINNER">BEGINNER</option>
                 <option value="INTERMEDIATE">INTERMEDIATE</option>
                 <option value="ADVANCED">ADVANCED</option>
             </select>
 
-        <button class="remove-category">Remove Skill</button>
+        <button class="remove-category" type="button" (click)="removeSkill(i)">Remove Skill</button>
     </div>
 
-    <button class="add-category">Add Skill</button>
+    <button class="add-category" type="button" (click)="addSkill()">Add Skill</button>
 </div>
