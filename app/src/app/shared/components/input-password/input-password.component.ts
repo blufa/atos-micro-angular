@@ -7,13 +7,13 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./input-password.component.scss']
 })
 export class InputPasswordComponent {
-  showPassword: boolean;
-  @Input() label: string;
-  @Input() name: string;
-  @Input() class: string;
-  @Input() placeholder: string;
-  @Input() readonly: boolean
-  @Input() control: FormControl
+  showPassword: boolean = false;
+  @Input() label: string = '';
+  @Input() name: string = '';
+  @Input() class: string = '';
+  @Input() placeholder: string = '';
+  @Input() readonly: boolean =  false
+  @Input() control: FormControl = new FormControl();
   constructor() { }
 
   ngOnInit(): void {

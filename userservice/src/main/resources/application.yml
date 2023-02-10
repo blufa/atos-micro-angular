@@ -12,12 +12,12 @@ spring:
   applications:
     name: user-service
 
-  data:
-    mongodb:
+  #data:
+    #mongodb:
       #authentication-database: admin
-      host: localhost
-      database: database_cv
-      port: 27017
+      #host: localhost
+      #database: database_cv
+      #port: 27017
       #username: root
       #password: root
 
@@ -26,5 +26,7 @@ jwt:
   refreshTokenSecret: _!-@tos2022
   accessTokenExpirationMinutes: 5
   refreshTokenExpirationDays: 30
+
+
 
 
