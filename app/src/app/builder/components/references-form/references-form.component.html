@@ -1,0 +1,19 @@
+<div class="references">
+    <h2 class="text-white text-lg md:text-gray-500 mb-1">References</h2>
+
+    <div class="form" *ngFor="let ref of form.controls; let i = index">
+        <app-input-text type="text" label="Full Name" name="refFullName" placeholder="Full Name"
+            [control]="getControl(ref.get('fullName'))" />
+        <app-input-text type="text" label="Phone Number" name="refPhoneNumber" placeholder="Phone Number"
+            [control]="getControl(ref.get('phoneNumber'))" />
+        <app-input-text type="email" name="email" label="Email" name="refEmail" placeholder="Email" [control]="getControl(ref.get('email'))" />
+        <app-input-text type="text" label="Job Title" name="refJobTitle" placeholder="Job Title"
+            [control]="getControl(ref.get('jobTitle'))" />
+        <app-input-text type="text" label="Company" name="refCompany" placeholder="Company"
+            [control]="getControl(ref.get('company'))" />
+
+        <button class="remove-category" id="refRemoveBtn" type="button" (click)="removeReference(i)">Remove Reference</button>
+    </div>
+
+    <button class="add-category" type="button" (click)="addReference()">Add Reference</button>
+</div>

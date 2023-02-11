@@ -1,0 +1,36 @@
+.references {
+    .form {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "refFullName refPhoneNumber"
+            "refEmail refJobTitle"
+            "refCompany ."
+            ". refRemoveBtn"
+        ;
+
+        #refFullName {
+            grid-area: refFullName;
+        }
+
+        #refPhoneNumber {
+            grid-area: refPhoneNumber;
+        }
+
+        #refEmail {
+            grid-area: refEmail;
+        }
+
+        #refJobTitle {
+            grid-area: refJobTitle;
+        }
+
+        #refCompany {
+            grid-area: refCompany;
+        }
+
+        #refRemoveBtn {
+            grid-area: refRemoveBtn;
+            justify-self: end;
+        }
+    }
+}

@@ -10,7 +10,6 @@ public class UserDTO {
     private String email;
     private String firstName;
     private String lastName;
-    private String password;
     private String phoneNumber;
     private String occupation;
     private String photo;
@@ -24,7 +23,6 @@ public class UserDTO {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.password = password;
         this.phoneNumber = phoneNumber;
         this.occupation = occupation;
         this.photo = photo;
@@ -84,14 +82,6 @@ public class UserDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getPhoneNumber() {

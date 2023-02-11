@@ -2,11 +2,11 @@ package atos.sn.cvservice.entities.models;
 
 public class Certificate {
     private String name;
-    private int date;
+    private int year;
 
-    public Certificate(String name, int date) {
+    public Certificate(String name, int year) {
         this.name = name;
-        this.date = date;
+        this.year = year;
     }
 
     public Certificate() {
@@ -20,11 +20,11 @@ public class Certificate {
         this.name = name;
     }
 
-    public int getDate() {
-        return date;
+    public int getYear() {
+        return year;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public void setYear(int year) {
+        this.year = year;
     }
 }

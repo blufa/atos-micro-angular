@@ -1,0 +1,25 @@
+.form-container {
+    display: grid;
+    row-gap: 3rem;
+    padding: 2rem 0;
+
+    .btnsContainer {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            padding: .5rem 2rem;
+            border-radius: 8px;
+            transition: .25s;
+
+            &:last-child {
+                color: white;
+                background-color: black;
+
+                &:hover {
+                    background-color: grey;
+                }
+            }
+        }
+    }
+}

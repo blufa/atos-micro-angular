@@ -1,0 +1,24 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+    <app-candidate-form [form]="getCandidateForm()"></app-candidate-form>
+
+    <app-education-form [form]="getEducationForm()"></app-education-form>
+
+    <app-leisures-form [form]="getLeisuresForm()"></app-leisures-form>
+
+    <app-certifications-form [form]="getCertificationsForm()"></app-certifications-form>
+
+    <app-skills-form [form]="getSkillsForm()"></app-skills-form>
+
+    <app-references-form [form]="getReferencesForm()"></app-references-form>
+
+    <app-languages-form [form]="getLanguagesForm()"></app-languages-form>
+
+    <app-work-experiences-form [form]="getWorkExperiencesForm()"></app-work-experiences-form>
+
+    <app-awards-honors-form [form]="getAwardsHonorsForm()"></app-awards-honors-form>
+
+    <div class="btnsContainer">
+        <button>Cancel</button>
+        <button>Save</button>
+    </div>
+</form>

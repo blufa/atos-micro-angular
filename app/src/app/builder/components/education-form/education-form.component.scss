@@ -1,0 +1,10 @@
+.education {
+    .education-form {
+        grid-template-columns: 1fr 1fr;
+
+        .remove-category {
+            grid-column: 2/3;
+            justify-self: end;
+        }
+    }
+}

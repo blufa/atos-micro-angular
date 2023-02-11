@@ -1,0 +1,33 @@
+.experiences {
+    .form {
+        grid-template-areas: "company jobTitle"
+            "description ."
+            "startDate endDate"
+            ". removeBtn";
+
+        .workXCompany {
+            grid-area: company;
+        }
+
+        .workXJobTitle {
+            grid-area: jobTitle;
+        }
+
+        .workXDescription {
+            grid-area: description;
+        }
+
+        .workXStartDate {
+            grid-area: startDate;
+        }
+
+        .workXEndDate {
+            grid-area: endDate;
+        }
+
+        .remove-category {
+            grid-area: removeBtn;
+            justify-self: end;
+        }
+    }
+}
