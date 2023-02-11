@@ -18,7 +18,7 @@ import java.util.Optional;
 @Component
 public class JwtUtils {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
-    static final String issuer = "GesCV";
+    static final String issuer = "UserService";
     private long accessTokenExpirationMinutes;
     private long refreshTokenExpirationDays;
     private Algorithm accessTokenAlgorithm;
