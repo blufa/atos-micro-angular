@@ -7,8 +7,9 @@ import { Button } from '../../interfaces/button';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
-  @Input() btn: Button;
-  @Input() disabled: boolean;
+  @Input() btn: any;
+  @Input() disabled: boolean = false;
+  constructor() { }
 
   ngOnInit(): void {
     if(!this.disabled){ this.disabled = false;}
