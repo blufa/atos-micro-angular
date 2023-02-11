@@ -35,7 +35,10 @@ const sharedComponents = [
 =======
     LevelComponent,
     TopbarComponent,
+<<<<<<< HEAD
 >>>>>>> 34bc652 (commit du 10-02-2023)
+=======
+>>>>>>> eb9429a (solution conflit)
   ],
   imports: [
     CommonModule,
