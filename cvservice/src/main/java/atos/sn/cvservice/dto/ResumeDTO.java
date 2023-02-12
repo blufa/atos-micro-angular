@@ -19,12 +19,12 @@ public class ResumeDTO {
     private List<Skill> skills;
     private List<Reference> references;
     private List<Language> languages;
-    private List<WorkExperience> experiences;
+    private List<WorkExperience> workExperiences;
     private List<AwardsHonors> awardsHonors;
 
     public ResumeDTO(String id, String candidate, List<Education> education, List<String> leisures,
             List<Certificate> certifications, List<Skill> skills, List<Reference> references, List<Language> languages,
-            List<WorkExperience> experiences, List<AwardsHonors> awardsHonors) {
+            List<WorkExperience> workExperiences, List<AwardsHonors> awardsHonors) {
         this.id = id;
         this.candidate = candidate;
         this.education = education;
@@ -33,7 +33,7 @@ public class ResumeDTO {
         this.skills = skills;
         this.references = references;
         this.languages = languages;
-        this.experiences = experiences;
+        this.workExperiences = workExperiences;
         this.awardsHonors = awardsHonors;
     }
 
@@ -104,12 +104,12 @@ public class ResumeDTO {
         this.languages = languages;
     }
 
-    public List<WorkExperience> getExperiences() {
-        return experiences;
+    public List<WorkExperience> getWorkExperiences() {
+        return workExperiences;
     }
 
-    public void setExperiences(List<WorkExperience> experiences) {
-        this.experiences = experiences;
+    public void setWorkExperiences(List<WorkExperience> workExperiences) {
+        this.workExperiences = workExperiences;
     }
 
     public List<AwardsHonors> getAwardsHonors() {

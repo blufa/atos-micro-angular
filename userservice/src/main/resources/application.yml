@@ -1,13 +1,10 @@
-server:
-  port: 5001
+port: 8082
 
 security:
   basic:
     enabled: false
-management:
-  security:
-    enabled: false
 
+<<<<<<< HEAD
 spring:
   applications:
     name: user-service
@@ -26,6 +23,12 @@ jwt:
   refreshTokenSecret: _!-@tos2022
   accessTokenExpirationMinutes: 5
   refreshTokenExpirationDays: 30
+=======
+  spring:
+    applications:
+    name: userservice
+
+>>>>>>> refs/remotes/origin/develop
 
 
 

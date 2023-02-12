@@ -21,7 +21,7 @@ import java.util.Collections;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "users")
+@Document(collection = "userAuth")
 public class UserEntity implements UserDetails {
     @Id
     private String id;

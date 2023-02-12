@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+<<<<<<< HEAD
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { IsAuthGuard } from './shared/guards/is-auth.guard';
 import { AuthGuard } from './shared/guards/auth.guard';
+=======
+import { LandingPageComponent } from './landing-page/landing-page.component';
+>>>>>>> refs/remotes/origin/develop
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
