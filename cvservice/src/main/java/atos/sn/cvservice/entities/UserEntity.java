@@ -22,7 +22,7 @@ public class UserEntity {
     private Map<String, String> contactLinks;
 
     public UserEntity(String id, String address, LocalDate dob, String email, String firstName, String lastName,
-            String password, String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
+            String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
         this.id = id;
         this.address = address;
         this.dob = dob;

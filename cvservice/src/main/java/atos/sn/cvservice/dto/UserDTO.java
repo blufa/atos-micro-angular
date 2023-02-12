@@ -16,7 +16,7 @@ public class UserDTO {
     private Map<String, String> contactLinks;
 
     public UserDTO(String id, String address, String dob, String email, String firstName, String lastName,
-            String password, String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
+            String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
         this.id = id;
         this.address = address;
         this.dob = dob;
