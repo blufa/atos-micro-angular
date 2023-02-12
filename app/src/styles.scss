@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.candidate,
+.education,
+.leisures,
+.certifications,
+.skills,
+.references,
+.languages,
+.experiences,
+.awards-honors {
+    display: grid;
+    row-gap: .5rem;
+
+    .form {
+        display: grid;
+        column-gap: .5rem;
+        row-gap: .5rem;
+
+        button {
+            margin: 0;
+        }
+    }
+
+    .form-two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+
+        :last-child {
+            align-self: center;
+            justify-self: end;
+        }
+    }
+
+    .form-three {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1rem;
+
+        :last-child {
+            align-self: center;
+            justify-self: end;
+        }
+    }
+
+    input {
+        border-radius: 8px;
+    }
+}
+
+.add-category,
+.remove-category {
+    border-radius: 8px;
+    padding: .4rem .8rem;
+    width: fit-content;
+    height: fit-content;
+    transition: .25s;
+}
+
+.add-category {
+    background-color: transparent;
+    border: 1px solid black;
+
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+}
+
+.remove-category {
+    background-color: transparent;
+    border: 1px solid red;
+    color: red;
+
+    &:hover {
+        background-color: red;
+        color: white;
+    }
+}
+

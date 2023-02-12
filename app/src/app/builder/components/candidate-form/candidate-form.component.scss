@@ -1,0 +1,48 @@
+.candidate {
+    .personal-info-form {
+        grid-template-areas:
+            "firstName lastName"
+            "dob email"
+            "occupation ."
+            "address phoneNumber"
+            "photoUrl .";
+
+        #firstName {
+            grid-area: firstName;
+        }
+
+        #lastName {
+            grid-area: lastName;
+        }
+
+        #email {
+            grid-area: email;
+        }
+
+        #address {
+            grid-area: address;
+        }
+
+        #phoneNumber {
+            grid-area: phoneNumber;
+        }
+
+        #dob {
+            grid-area: dob;
+        }
+
+        #occupation {
+            grid-area: occupation;
+        }
+
+        #photoUrl {
+            grid-area: photoUrl;
+        }
+    }
+
+    .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+}

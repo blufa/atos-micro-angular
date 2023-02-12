@@ -15,6 +15,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { LevelComponent } from './components/level/level.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { SocialIconCircleComponent } from './components/social-icon-circle/social-icon-circle.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const sharedComponents = [
     InputTextComponent,

@@ -15,8 +15,6 @@ export class InputTextComponent implements OnInit {
   @Input() readonly: boolean = false
   @Input() control: FormControl = new FormControl();
 
-  constructor() { }
-
   ngOnInit(): void {
     if(!this.type){this.type = "text"}
     if(!this.placeholder){this.placeholder = ''}

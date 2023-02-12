@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { IsAuthGuard } from './shared/guards/is-auth.guard';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
