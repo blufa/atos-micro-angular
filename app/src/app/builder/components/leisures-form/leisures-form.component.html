@@ -1,11 +1,11 @@
-<div class="leisures">
-    <h2 class="text-white text-lg md:text-gray-500 mb-1">Leisures</h2>
-
+<div class="leisures px-4">
+    <titleComponent title="Leisures"></titleComponent>
     <div class="form form-two" *ngFor="let leisure of form.controls; let i = index">
-        <app-input-text type="text" name="link" placeholder="Leisure (e.g. Sport)"
+        <inputTextComponent type="text" name="link" placeholder="Leisure (e.g. Sport)"
             [control]="getControl(leisure)" />
         <button class="remove-category" type="button" (click)="removeLeisure(i)">Remove Leisure</button>
     </div>
-
-    <button class="add-category" type="button" (click)="addLeisure()">Add Leisure</button>
+    <div class="w-full flex justify-end items-center">
+        <button class="add-category" type="button" (click)="addLeisure()">Add Leisure</button>
+    </div>
 </div>

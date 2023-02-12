@@ -12,10 +12,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
   style: {};
   ngAfterViewInit() {
     this.divheight = this.createcv.nativeElement.offsetHeight;
-    this.style = { 'max-height': this.divheight + 'px', 'height': this.divheight + 'px', 'min-height': this.divheight + 'px' };
+    console.log(this.createcv.nativeElement.offsetHeight)
+    if(this.divheight > 0){
+      this.style = { 'max-height': this.divheight + 'px',};
+    }else{
+      this.style = { 'height': '600px!important', };
+    }
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
 }

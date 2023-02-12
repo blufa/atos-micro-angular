@@ -10,15 +10,12 @@ import { ButtonComponent } from './components/button/button.component';
 import { CvCardComponent } from './components/cv-card/cv-card.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { FooterComponent } from './components/footer/footer.component';
-<<<<<<< HEAD
 import { ResumeComponent } from './components/resume/resume.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { LevelComponent } from './components/level/level.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { SocialIconCircleComponent } from './components/social-icon-circle/social-icon-circle.component';
-=======
-import { HeaderComponent } from './components/header/header.component';
->>>>>>> refs/remotes/origin/develop
+import { TitleComponent } from './components/title/title.component';
 
 const sharedComponents = [
     InputTextComponent,
@@ -28,7 +25,8 @@ const sharedComponents = [
     LayoutComponent,
     ResumeComponent,
     ExperienceComponent,
-    SocialIconCircleComponent
+    SocialIconCircleComponent,
+    TitleComponent
 ]
 
 @NgModule({

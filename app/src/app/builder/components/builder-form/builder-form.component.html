@@ -1,24 +1,25 @@
-<form class="form-container" (ngSubmit)="onSubmit()">
+<form class="w-full form-container bg-white py-5" (ngSubmit)="onSubmit()">
     <app-candidate-form [form]="getCandidateForm()"></app-candidate-form>
+    <hr>
 
     <app-education-form [form]="getEducationForm()"></app-education-form>
-
+<hr>
     <app-leisures-form [form]="getLeisuresForm()"></app-leisures-form>
-
+<hr>
     <app-certifications-form [form]="getCertificationsForm()"></app-certifications-form>
-
+<hr>
     <app-skills-form [form]="getSkillsForm()"></app-skills-form>
-
+<hr>
     <app-references-form [form]="getReferencesForm()"></app-references-form>
-
+<hr>
     <app-languages-form [form]="getLanguagesForm()"></app-languages-form>
-
+<hr>
     <app-work-experiences-form [form]="getWorkExperiencesForm()"></app-work-experiences-form>
-
+<hr>
     <app-awards-honors-form [form]="getAwardsHonorsForm()"></app-awards-honors-form>
 
-    <div class="btnsContainer">
-        <button>Cancel</button>
-        <button>Save</button>
+    <div class="w-full flex justify-between px-4">
+        <button class="bg-red-400 px-4 py-2 text-white rounded-[5px]">Cancel</button>
+        <button class="bg-blue-500 text-white px-8 py-2 rounded-[5px]" [ngClass]="form.invalid? 'bg-opacity-30': ''" [disabled]="form.invalid">Save</button>
     </div>
 </form>
