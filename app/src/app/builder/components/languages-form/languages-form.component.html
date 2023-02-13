@@ -1,8 +1,7 @@
-<div class="languages">
-    <h2 class="text-white text-lg md:text-gray-500 mb-1">Languages</h2>
-
+<div class="languages px-4">
+    <titleComponent title="Languages"></titleComponent>
     <div class="form form-three" *ngFor="let language of form.controls; let i = index">
-        <app-input-text type="text" label="Language" name="language" placeholder="Language (e.g. Spanish)"
+        <inputTextComponent type="text" label="Language" name="language" placeholder="Language (e.g. Spanish)"
             [control]="getControl(language.get('name'))" />
 
         <select name="languageLevel" id="languageLevel" [formControl]="getControl(language.get('level'))">
@@ -13,6 +12,7 @@
 
         <button class="remove-category" type="button" (click)="removeLanguage(i)">Remove Language</button>
     </div>
-
-    <button class="add-category" type="button" (click)="addLanguage()">Add Language</button>
+    <div class="w-full flex justify-end items-center">
+        <button class="add-category" type="button" (click)="addLanguage()">Add Language</button>
+    </div>
 </div>

@@ -53,7 +53,7 @@
 
 .add-category,
 .remove-category {
-    border-radius: 8px;
+    border-radius: 5px;
     padding: .4rem .8rem;
     width: fit-content;
     height: fit-content;
@@ -62,10 +62,11 @@
 
 .add-category {
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid rgb(106, 164, 250);
+    color: rgb(106, 164, 250);
 
     &:hover {
-        background-color: black;
+        background-color: rgb(106, 164, 250);
         color: white;
     }
 }

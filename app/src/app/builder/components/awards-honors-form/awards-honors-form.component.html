@@ -1,13 +1,13 @@
-<div class="awards-honors">
-    <h2 class="text-white text-lg md:text-gray-500 mb-1">Awards & Honors</h2>
-
+<div class="awards-honors px-4">
+    <titleComponent title="Awards & Honors"></titleComponent>
     <div class="form form-three" *ngFor="let awardHonor of form.controls; let i = index">
-        <app-input-text type="text" label="Name" name="awardHonorName" placeholder="Name"
+        <inputTextComponent type="text" label="Name" name="awardHonorName" placeholder="Name"
             [control]="getControl(awardHonor.get('name'))" />
-        <app-input-text type="text" label="Year" name="awardHonorYear" placeholder="Year"
+        <inputTextComponent type="text" label="Year" name="awardHonorYear" placeholder="Year"
             [control]="getControl(awardHonor.get('year'))" />
         <button class="remove-category" type="button" (click)="removeAwardHonor(i)">Remove Award/Honor</button>
     </div>
-
-    <button class="add-category" type="button" (click)="addAwardHonor()">Add Award/Honor</button>
+    <div class="w-full flex justify-end items-center">
+        <button class="add-category" type="button" (click)="addAwardHonor()">Add Award/Honor</button>
+    </div>
 </div>

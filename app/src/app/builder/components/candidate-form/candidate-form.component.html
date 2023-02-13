@@ -1,30 +1,28 @@
-<div class="candidate">
-    <h2 class="text-white text-lg md:text-gray-500 mb-1">Personal Information</h2>
-
+<div class="candidate px-4">
+    <titleComponent title="Informations personnelles"></titleComponent>
     <div class="personal-info-form form">
-        <app-input-text type="text" label="First Name" name="firstName" placeholder="First Name"
+        <inputTextComponent type="text" label="First Name" name="firstName" placeholder="First Name"
             [control]="firstNameControl" />
-        <app-input-text type="text" label="Last Name" name="lastName" placeholder="Last Name"
+        <inputTextComponent type="text" label="Last Name" name="lastName" placeholder="Last Name"
             [control]="lastNameControl" />
-        <app-input-text type="email" label="Email" name="email" placeholder="Email" [control]="emailControl" />
-        <app-input-text type="text" label="Address" name="address" placeholder="Address" [control]="addressControl" />
-        <app-input-text type="text" label="Phone Number" name="phoneNumber" placeholder="Phone Number"
+        <inputTextComponent type="email" label="Email" name="email" placeholder="Email" [control]="emailControl" />
+        <inputTextComponent type="text" label="Address" name="address" placeholder="Address" [control]="addressControl" />
+        <inputTextComponent type="text" label="Phone Number" name="phoneNumber" placeholder="Phone Number"
             [control]="phoneNumberControl" />
-        <app-input-text type="date" label="Date of Birth" name="dob" placeholder="Date of Birth"
+        <inputTextComponent type="date" label="Date of Birth" name="dob" placeholder="Date of Birth"
             [control]="dobControl" />
-        <app-input-text type="text" label="Occupation" name="occupation" placeholder="Occupation"
+        <inputTextComponent type="text" label="Occupation" name="occupation" placeholder="Occupation"
             [control]="occupationControl" />
-        <app-input-text type="text" label="Photo URL" name="photoUrl" placeholder="Photo URL"
+        <inputTextComponent type="text" label="Photo URL" name="photoUrl" placeholder="Photo URL"
             [control]="photoUrlControl" />
     </div>
 
     <h3 class="text-white text-sm md:text-gray-500 mb-1">External Links</h3>
 
     <div class="form form-two" *ngFor="let link of externalLinks.controls; let i = index">
-        <app-input-text type="text" name="link" placeholder="External Link (e.g. https://linkedin.com/johndoe)"
+        <inputTextComponent type="text" name="link" placeholder="External Link (e.g. https://linkedin.com/johndoe)"
             [control]="getControl(link)" />
         <button class="remove-category" type="button" (click)="removeExternalLink(i)">Remove External Link</button>
     </div>
-
-    <button class="add-category" type="button" (click)="addExternalLink()">Add External Link</button>
+        <button class="add-category" type="button" (click)="addExternalLink()">Add External Link</button>
 </div>

@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SingInComponent } from './components/sing-in/sing-in.component';
+import { SingUpComponent } from './components/sing-up/sing-up.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    children: [
+      { path:'sing-in', component: SingInComponent},
+      { path:'sing-up', component: SingUpComponent},
+      { path: '**', redirectTo: 'sing-in', pathMatch: 'full' },
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

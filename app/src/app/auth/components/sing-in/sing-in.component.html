@@ -1,0 +1,34 @@
+<div class="w-full flex justify-between items-center mx-auto bg-white p-4 min-h-[calc(100vh-7.5rem)]">
+    <div class="flex-1 flex-col justify-start items-center">
+        <h1 class="w-full text-center text-3xl text-gray-500 font-bold leading-10">Authentification</h1>
+        <p class="w-full text-center text-sm font-normal text-gray-400 leading-6 mb-7">Veillez vous authentifier pour accéder à votre espace personnel !</p>
+        <form class="w-full px-10" [formGroup]="singInForm" (ngSubmit)="onSubmit()">
+            <div class="w-full">
+                <inputTextComponent
+                    [control]="email" 
+                    placeholder="Email..."
+                    label="Email"
+                    name="email"
+                ></inputTextComponent>
+            </div>
+            <div class="w-full">
+                <inputPasswordComponent
+                    [control]="password" 
+                    placeholder="Mot de passe..."
+                    label="Mot de passe"
+                    name="password"
+                    ></inputPasswordComponent>
+            </div>
+            <p class="w-full flex justify-end items-center mb-5">
+              <a class="text-white md:text-blue-400 text-xs font-normal" routerLink="">Mot de passe oublié?</a>
+            </p>
+            <div class="w-full">
+                <buttonComponent [disabled]="singInForm.invalid" [btn]="button"></buttonComponent>
+            </div>
+            <div class="md:mb-10"></div>
+          </form>
+    </div>
+    <div class="flex-1 flex items-center justify-center">
+        <img src="../../../assets/images/sing_in.svg" class="w-2/3" alt="">
+    </div>
+</div>

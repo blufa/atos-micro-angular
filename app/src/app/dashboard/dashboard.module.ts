@@ -14,8 +14,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    RouterModule,
     SharedModule
-  ]
+  ],
 })
 export class DashboardModule { }

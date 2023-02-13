@@ -18,15 +18,25 @@
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
 	</properties>
 	<dependencies>
+<<<<<<< HEAD
+
+
+<!--		start-->
+=======
 		<!-- CONFIG SERVER -->
+>>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+<<<<<<< HEAD
+
+=======
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
+>>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
@@ -35,7 +45,13 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
+<<<<<<< HEAD
+
+<!--		end-->
+
+=======
 		<!-- SPRING TEST -->
+>>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -50,17 +66,6 @@
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.9.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.9.2</version>
-		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
