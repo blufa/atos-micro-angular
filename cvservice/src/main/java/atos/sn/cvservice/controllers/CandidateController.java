@@ -11,37 +11,37 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import atos.sn.cvservice.dto.CandiateDTO;
+import atos.sn.cvservice.dto.CandidateDTO;
 import atos.sn.cvservice.entities.CandidateEntity;
 import atos.sn.cvservice.services.CandidateService;
 
 @RestController
-public class UserController {
+public class CandidateController {
     @Autowired
     private CandidateService candidateService;
 
     @PostMapping("/users")
-    public CandiateDTO addUser(@RequestBody CandiateDTO userDTO) {
-        return candidateService.addUser(userDTO);
+    public CandidateDTO addCandidate(@RequestBody CandidateDTO userDTO) {
+        return candidateService.addCandidate(userDTO);
     }
 
     @PutMapping("/users/{id}")
-    public CandiateDTO editUser(@PathVariable String id, @RequestBody CandiateDTO userDTO) {
-        return candidateService.editUser(userDTO, id);
+    public CandidateDTO editCandidate(@PathVariable String id, @RequestBody CandidateDTO userDTO) {
+        return candidateService.editCandidate(userDTO, id);
     }
 
     @GetMapping("/users")
-    public List<CandidateEntity> getUsers() {
-        return candidateService.getUsers();
+    public List<CandidateEntity> getCandidates() {
+        return candidateService.getCandidates();
     }
 
     @GetMapping("/users/{id}")
-    public CandidateEntity getUser(@PathVariable String id) {
-        return candidateService.getUser(id);
+    public CandidateEntity getCandidate(@PathVariable String id) {
+        return candidateService.getCandidate(id);
     }
 
     @DeleteMapping("/users/{id}")
-    public void deleteUser(@PathVariable String id) {
-        candidateService.deleteUser(id);
+    public void deleteCandidate(@PathVariable String id) {
+        candidateService.deleteCandidate(id);
     }
 }

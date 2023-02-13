@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import atos.sn.cvservice.dto.CandiateDTO;
+import atos.sn.cvservice.dto.CandidateDTO;
 import atos.sn.cvservice.entities.CandidateEntity;
 import atos.sn.cvservice.mappers.CandidateMapper;
 import atos.sn.cvservice.repositories.CandidateRepository;
@@ -20,33 +20,33 @@ public class CandidateServiceImpl implements CandidateService {
     private CandidateMapper userMapper;
 
     @Override
-    public CandiateDTO addUser(CandiateDTO userDTO) {
+    public CandidateDTO addCandidate(CandidateDTO userDTO) {
         CandidateEntity userEntity = userMapper.toEntity(userDTO);
-        CandidateEntity addedUserEntity = userRepository.save(userEntity);
-        return userMapper.toDto(addedUserEntity);
+        CandidateEntity addedCandidateEntity = userRepository.save(userEntity);
+        return userMapper.toDto(addedCandidateEntity);
     }
 
     @Override
-    public CandiateDTO editUser(CandiateDTO userDTO, String id) {
+    public CandidateDTO editCandidate(CandidateDTO userDTO, String id) {
         // Check if resume exists before editing
         Optional<CandidateEntity> userEntity = userRepository.findById(id);
 
         if (userEntity.isPresent()) {
-            CandidateEntity newUserEntity = userMapper.toEntity(userDTO);
-            CandidateEntity savedUser = userRepository.save(newUserEntity);
-            return userMapper.toDto(savedUser);
+            CandidateEntity newCandidateEntity = userMapper.toEntity(userDTO);
+            CandidateEntity savedCandidate = userRepository.save(newCandidateEntity);
+            return userMapper.toDto(savedCandidate);
         }
 
-        return new CandiateDTO();
+        return new CandidateDTO();
     }
 
     @Override
-    public List<CandidateEntity> getUsers() {
+    public List<CandidateEntity> getCandidates() {
         return userRepository.findAll();
     }
 
     @Override
-    public CandidateEntity getUser(String id) {
+    public CandidateEntity getCandidate(String id) {
         Optional<CandidateEntity> user = userRepository.findById(id);
 
         if (user.isPresent()) {
@@ -57,7 +57,7 @@ public class CandidateServiceImpl implements CandidateService {
     }
 
     @Override
-    public void deleteUser(String id) {
+    public void deleteCandidate(String id) {
         userRepository.deleteById(id);
     }
 }

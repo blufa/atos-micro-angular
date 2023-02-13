@@ -2,11 +2,11 @@ package atos.sn.cvservice.mappers;
 
 import org.mapstruct.Mapper;
 
-import atos.sn.cvservice.dto.CandiateDTO;
+import atos.sn.cvservice.dto.CandidateDTO;
 import atos.sn.cvservice.entities.CandidateEntity;
 
 @Mapper(componentModel = "spring")
 public interface CandidateMapper {
-    CandidateEntity toEntity(CandiateDTO userDTO);
-    CandiateDTO toDto(CandidateEntity userEntity);
+    CandidateEntity toEntity(CandidateDTO userDTO);
+    CandidateDTO toDto(CandidateEntity userEntity);
 }

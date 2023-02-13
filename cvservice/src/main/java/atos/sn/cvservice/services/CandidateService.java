@@ -2,17 +2,17 @@ package atos.sn.cvservice.services;
 
 import java.util.List;
 
-import atos.sn.cvservice.dto.CandiateDTO;
+import atos.sn.cvservice.dto.CandidateDTO;
 import atos.sn.cvservice.entities.CandidateEntity;
 
 public interface CandidateService {
-    CandiateDTO addUser(CandiateDTO userDTO);
+    CandidateDTO addCandidate(CandidateDTO userDTO);
 
-    CandiateDTO editUser(CandiateDTO userDTO, String id);
+    CandidateDTO editCandidate(CandidateDTO userDTO, String id);
 
-    List<CandidateEntity> getUsers();
+    List<CandidateEntity> getCandidates();
 
-    CandidateEntity getUser(String id);
+    CandidateEntity getCandidate(String id);
 
-    void deleteUser(String id);
+    void deleteCandidate(String id);
 }

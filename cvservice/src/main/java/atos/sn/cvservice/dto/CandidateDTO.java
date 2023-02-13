@@ -3,7 +3,7 @@ package atos.sn.cvservice.dto;
 import java.time.LocalDate;
 import java.util.Map;
 
-public class CandiateDTO {
+public class CandidateDTO {
     private String id;
     private String address;
     private String dob;
@@ -15,7 +15,7 @@ public class CandiateDTO {
     private String photo;
     private Map<String, String> contactLinks;
 
-    public CandiateDTO(String id, String address, String dob, String email, String firstName, String lastName,
+    public CandidateDTO(String id, String address, String dob, String email, String firstName, String lastName,
             String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
         this.id = id;
         this.address = address;
@@ -29,7 +29,7 @@ public class CandiateDTO {
         this.contactLinks = contactLinks;
     }
 
-    public CandiateDTO() {
+    public CandidateDTO() {
     }
 
     public String getId() {
