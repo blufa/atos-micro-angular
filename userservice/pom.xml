@@ -58,11 +58,9 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-<<<<<<< HEAD
+
 <!--start-->
-=======
 		<!-- CONFIG SERVER DEPENDENCIES-->
->>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -75,11 +73,8 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
-<<<<<<< HEAD
 <!--End-->
-=======
 		<!-- SPRING TEST DEPENDENCIES -->
->>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -92,10 +87,6 @@
 			<scope>test</scope>
 		</dependency>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/develop
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
