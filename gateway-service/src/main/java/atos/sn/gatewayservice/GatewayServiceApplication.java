@@ -7,12 +7,6 @@ import org.springframework.cloud.client.discovery.ReactiveDiscoveryClient;
 import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator;
 import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
 import org.springframework.context.annotation.Bean;
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/develop
-
-
 
 @SpringBootApplication
 public class GatewayServiceApplication {

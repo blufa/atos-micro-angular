@@ -1,6 +1,5 @@
 package atos.sn.userservice.security;
 
-import atos.sn.userservice.dto.UserDto;
 import atos.sn.userservice.entities.UserEntity;
 import atos.sn.userservice.jwt.JwtUtils;
 import atos.sn.userservice.services.UserServiceImpl;

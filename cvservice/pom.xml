@@ -24,30 +24,20 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
-<<<<<<< HEAD
-
-=======
 		<!-- SPRING WEB -->
->>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-<<<<<<< HEAD
-
-		<!-- SWAGGER START -->
-=======
 		<!-- CONFIG SERVER -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
->>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-<<<<<<< HEAD
 
 		<!-- SWAGGER END -->
 
@@ -62,18 +52,11 @@
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 
-=======
->>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
-<<<<<<< HEAD
-<!--		end-->
-
-=======
 		<!-- MAPSTRUCT -->
->>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
@@ -85,15 +68,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
-
-=======
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
->>>>>>> refs/remotes/origin/develop
 	</dependencies>
 
 	<dependencyManagement>

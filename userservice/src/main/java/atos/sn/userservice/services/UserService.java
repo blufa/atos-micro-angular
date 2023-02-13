@@ -4,7 +4,6 @@ import atos.sn.userservice.dto.*;
 import atos.sn.userservice.entities.UserEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
     List<UserEntity> getAllUsers();
