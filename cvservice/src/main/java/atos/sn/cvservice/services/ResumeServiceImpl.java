@@ -6,8 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import atos.sn.cvservice.dto.CandidateDTO;
 import atos.sn.cvservice.dto.ResumeDTO;
+import atos.sn.cvservice.entities.CandidateEntity;
 import atos.sn.cvservice.entities.ResumeEntity;
+import atos.sn.cvservice.mappers.CandidateMapper;
 import atos.sn.cvservice.mappers.ResumeMapper;
 import atos.sn.cvservice.repositories.ResumeRepository;
 
@@ -19,9 +22,20 @@ public class ResumeServiceImpl implements ResumeService {
     @Autowired
     private ResumeMapper resumeMapper;
 
+    @Autowired
+    private CandidateService candidateService;
+
+    @Autowired
+    private CandidateMapper candidateMapper;
+
     @Override
     public ResumeDTO addResume(ResumeDTO resumeDTO) {
         // Create new Candidate
+        CandidateDTO candidateDto = candidateService.addCandidate(candidateMapper.toDto(resumeDTO.getCandidate()));
+        CandidateEntity candidateEntity = candidateMapper.toEntity(candidateDto);
+
+        // Set candidate in Resume
+        resumeDTO.setCandidate(candidateEntity);
 
         // Create new Resume
         ResumeEntity resumeEntity = resumeMapper.toEntity(resumeDTO);
@@ -36,6 +50,12 @@ public class ResumeServiceImpl implements ResumeService {
 
         if (resumeEntity.isPresent()) {
             // Edit candidate
+            CandidateDTO candidateDto = candidateService.editCandidate(candidateMapper.toDto(resumeDTO.getCandidate()),
+                    resumeDTO.getCandidate().getId());
+            CandidateEntity candidateEntity = candidateMapper.toEntity(candidateDto);
+
+            // Set candidate in Resume
+            resumeDTO.setCandidate(candidateEntity);
 
             // Edit Resume
             ResumeEntity newResumeEntity = resumeMapper.toEntity(resumeDTO);
@@ -64,10 +84,16 @@ public class ResumeServiceImpl implements ResumeService {
 
     @Override
     public void deleteResume(String id) {
-        // Delete Candidate
+        try {
+            // Delete Candidate
+            ResumeEntity resumeEntity = getResume(id);
+            candidateService.deleteCandidate(resumeEntity.getCandidate().getId());
 
-        // Delete Resume
-        resumeRepository.deleteById(id);
+            // Delete Resume
+            resumeRepository.deleteById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
