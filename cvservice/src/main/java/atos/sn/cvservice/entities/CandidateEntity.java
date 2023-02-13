@@ -11,6 +11,7 @@ import java.util.Map;
 public class CandidateEntity {
     @Id
     private String id;
+    private String userId;
     private String address;
     private LocalDate dob;
     private String email;
@@ -21,9 +22,11 @@ public class CandidateEntity {
     private String photo;
     private Map<String, String> contactLinks;
 
-    public CandidateEntity(String id, String address, LocalDate dob, String email, String firstName, String lastName,
+    public CandidateEntity(String id, String userId, String address, LocalDate dob, String email, String firstName,
+            String lastName,
             String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
         this.id = id;
+        this.userId = userId;
         this.address = address;
         this.dob = dob;
         this.email = email;
@@ -44,6 +47,14 @@ public class CandidateEntity {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getAddress() {
