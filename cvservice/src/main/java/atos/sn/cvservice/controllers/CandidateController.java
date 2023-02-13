@@ -20,27 +20,27 @@ public class CandidateController {
     @Autowired
     private CandidateService candidateService;
 
-    @PostMapping("/users")
+    @PostMapping("/candidates")
     public CandidateDTO addCandidate(@RequestBody CandidateDTO userDTO) {
         return candidateService.addCandidate(userDTO);
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/candidates/{id}")
     public CandidateDTO editCandidate(@PathVariable String id, @RequestBody CandidateDTO userDTO) {
         return candidateService.editCandidate(userDTO, id);
     }
 
-    @GetMapping("/users")
+    @GetMapping("/candidates")
     public List<CandidateEntity> getCandidates() {
         return candidateService.getCandidates();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/candidates/{id}")
     public CandidateEntity getCandidate(@PathVariable String id) {
         return candidateService.getCandidate(id);
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/candidates/{id}")
     public void deleteCandidate(@PathVariable String id) {
         candidateService.deleteCandidate(id);
     }
