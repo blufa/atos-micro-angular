@@ -45,9 +45,6 @@ export class SingInComponent {
     onShowPassword = () =>{
       this.showPassword = !this.showPassword
     }
-
-   
-  
     onSubmit = () => {
       if(this.singInForm.valid){}
     }

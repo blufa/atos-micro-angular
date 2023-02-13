@@ -1,1 +1,7 @@
-<p>resume-view works!</p>
+<div class="w-full bg-white">
+    <div class="w-full p-4 flex justify-between items-center">
+        <a routerLink="/dashboard" class="px-5 py-2 rounded-[5px] bg-gray-400 text-white">Retour</a>
+        <a routerLink="/builder" class="px-5 py-2 rounded-[5px] bg-blue-500 text-white">Créer un cv</a>
+    </div>
+    <resumeComponent [resume]="resume"></resumeComponent>
+</div>
