@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
-@Document(collection = "users")
+@Document(collection = "candidates")
 public class CandidateEntity {
     @Id
     private String id;
