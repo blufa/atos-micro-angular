@@ -1,12 +1,19 @@
-package atos.sn.cvservice.dto;
+package atos.sn.cvservice.entities;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
-public class UserDTO {
+@Document(collection = "candidates")
+public class CandidateEntity {
+    @Id
     private String id;
+    private String userId;
     private String address;
-    private String dob;
+    private LocalDate dob;
     private String email;
     private String firstName;
     private String lastName;
@@ -15,9 +22,11 @@ public class UserDTO {
     private String photo;
     private Map<String, String> contactLinks;
 
-    public UserDTO(String id, String address, String dob, String email, String firstName, String lastName,
-            String password, String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
+    public CandidateEntity(String id, String userId, String address, LocalDate dob, String email, String firstName,
+            String lastName,
+            String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
         this.id = id;
+        this.userId = userId;
         this.address = address;
         this.dob = dob;
         this.email = email;
@@ -29,7 +38,7 @@ public class UserDTO {
         this.contactLinks = contactLinks;
     }
 
-    public UserDTO() {
+    public CandidateEntity() {
     }
 
     public String getId() {
@@ -40,6 +49,14 @@ public class UserDTO {
         this.id = id;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -48,15 +65,16 @@ public class UserDTO {
         this.address = address;
     }
 
-    public String getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob.toString();
+    public void setDob(String dob) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.dob = LocalDate.parse(dob, dateTimeFormatter);
     }
 
-    public void setDob(String dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 

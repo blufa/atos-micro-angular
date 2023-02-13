@@ -3,8 +3,8 @@ package atos.sn.cvservice.repositories;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import atos.sn.cvservice.entities.UserEntity;
+import atos.sn.cvservice.entities.CandidateEntity;
 
 @Repository
-public interface UserRepository extends MongoRepository<UserEntity, String> {
+public interface CandidateRepository extends MongoRepository<CandidateEntity, String> {
 }
