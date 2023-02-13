@@ -11,32 +11,32 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import atos.sn.cvservice.dto.UserDTO;
-import atos.sn.cvservice.entities.UserEntity;
-import atos.sn.cvservice.services.UserService;
+import atos.sn.cvservice.dto.CandiateDTO;
+import atos.sn.cvservice.entities.CandidateEntity;
+import atos.sn.cvservice.services.CandidateService;
 
 @RestController
 public class UserController {
     @Autowired
-    private UserService candidateService;
+    private CandidateService candidateService;
 
     @PostMapping("/users")
-    public UserDTO addUser(@RequestBody UserDTO userDTO) {
+    public CandiateDTO addUser(@RequestBody CandiateDTO userDTO) {
         return candidateService.addUser(userDTO);
     }
 
     @PutMapping("/users/{id}")
-    public UserDTO editUser(@PathVariable String id, @RequestBody UserDTO userDTO) {
+    public CandiateDTO editUser(@PathVariable String id, @RequestBody CandiateDTO userDTO) {
         return candidateService.editUser(userDTO, id);
     }
 
     @GetMapping("/users")
-    public List<UserEntity> getUsers() {
+    public List<CandidateEntity> getUsers() {
         return candidateService.getUsers();
     }
 
     @GetMapping("/users/{id}")
-    public UserEntity getUser(@PathVariable String id) {
+    public CandidateEntity getUser(@PathVariable String id) {
         return candidateService.getUser(id);
     }
 

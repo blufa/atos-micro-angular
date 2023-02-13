@@ -2,9 +2,7 @@ package atos.sn.cvservice.dto;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.core.mapping.DBRef;
-
-import atos.sn.cvservice.entities.UserEntity;
+import atos.sn.cvservice.entities.CandidateEntity;
 import atos.sn.cvservice.entities.models.AwardsHonors;
 import atos.sn.cvservice.entities.models.Certificate;
 import atos.sn.cvservice.entities.models.Education;
@@ -15,7 +13,7 @@ import atos.sn.cvservice.entities.models.WorkExperience;
 
 public class ResumeDTO {
     private String id;
-    private UserEntity candidate;
+    private CandidateEntity candidate;
     private List<Education> education;
     private List<String> leisures;
     private List<Certificate> certifications;
@@ -25,7 +23,7 @@ public class ResumeDTO {
     private List<WorkExperience> workExperiences;
     private List<AwardsHonors> awardsHonors;
 
-    public ResumeDTO(String id, UserEntity candidate, List<Education> education, List<String> leisures,
+    public ResumeDTO(String id, CandidateEntity candidate, List<Education> education, List<String> leisures,
             List<Certificate> certifications, List<Skill> skills, List<Reference> references, List<Language> languages,
             List<WorkExperience> workExperiences, List<AwardsHonors> awardsHonors) {
         this.id = id;
@@ -51,11 +49,11 @@ public class ResumeDTO {
         this.id = id;
     }
 
-    public UserEntity getCandidate() {
+    public CandidateEntity getCandidate() {
         return candidate;
     }
 
-    public void setCandidate(UserEntity candidate) {
+    public void setCandidate(CandidateEntity candidate) {
         this.candidate = candidate;
     }
 

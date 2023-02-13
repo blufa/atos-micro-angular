@@ -21,6 +21,9 @@ public class ResumeServiceImpl implements ResumeService {
 
     @Override
     public ResumeDTO addResume(ResumeDTO resumeDTO) {
+        // Create new Candidate
+
+        // Create new Resume
         ResumeEntity resumeEntity = resumeMapper.toEntity(resumeDTO);
         ResumeEntity savedResume = resumeRepository.save(resumeEntity);
         return resumeMapper.toDto(savedResume);
@@ -32,6 +35,9 @@ public class ResumeServiceImpl implements ResumeService {
         Optional<ResumeEntity> resumeEntity = resumeRepository.findById(id);
 
         if (resumeEntity.isPresent()) {
+            // Edit candidate
+
+            // Edit Resume
             ResumeEntity newResumeEntity = resumeMapper.toEntity(resumeDTO);
             ResumeEntity savedResume = resumeRepository.save(newResumeEntity);
             return resumeMapper.toDto(savedResume);
@@ -58,6 +64,9 @@ public class ResumeServiceImpl implements ResumeService {
 
     @Override
     public void deleteResume(String id) {
+        // Delete Candidate
+
+        // Delete Resume
         resumeRepository.deleteById(id);
     }
 
