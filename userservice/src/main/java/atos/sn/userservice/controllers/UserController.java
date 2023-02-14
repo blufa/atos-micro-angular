@@ -3,7 +3,6 @@ package atos.sn.userservice.controllers;
 import atos.sn.userservice.controllers.api.UserApi;
 import atos.sn.userservice.dto.UserDto;
 import atos.sn.userservice.entities.UserEntity;
-import atos.sn.userservice.repositories.UserRepository;
 import atos.sn.userservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,14 +20,15 @@ public class UserController implements UserApi {
     @Autowired
     private UserService userService;
 
-
     @Override
     public ResponseEntity<?> getAllUsers() {
         Map<String, Object> map;
         try {
             List<UserEntity> users = this.userService.getAllUsers();
-            if (users.isEmpty()) {  return new ResponseEntity<>(HttpStatus.NO_CONTENT); }
-            map = Map.of("status", 200,"data", users);
+            if (users.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            map = Map.of("status", 200, "data", users);
             return new ResponseEntity<>(map, HttpStatus.OK);
         } catch (Exception e) {
             map = Map.of("status", 500, "data", null, "message", e.getMessage());
@@ -45,7 +45,7 @@ public class UserController implements UserApi {
             map = Map.of("status", 200, "data", user);
             return new ResponseEntity<>(map, HttpStatus.OK);
         } catch (Exception e) {
-            map= Map.of("status", 500, "data", null, "message", e.getMessage());
+            map = Map.of("status", 500, "data", null, "message", e.getMessage());
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
