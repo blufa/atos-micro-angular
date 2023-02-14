@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'cvCardComponent',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./cv-card.component.scss']
 })
 export class CvCardComponent {
+
+  @Input() resume: any;
+  @Output() delete: EventEmitter<number> = new EventEmitter();
+
+
+  deleteResume() {
+    this.delete.emit(this.resume.id);
+  }
 
 }

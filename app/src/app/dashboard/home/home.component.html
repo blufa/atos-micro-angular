@@ -8,6 +8,6 @@
         </a>
     </div>
     <div #createcv class="w-full md:w-[15%]">
-        <cvCardComponent></cvCardComponent>
+        <cvCardComponent *ngFor="let resume of resumes" [resume]="resume" (delete)="deleteResumeByid($event)"></cvCardComponent>
     </div>
 </section>

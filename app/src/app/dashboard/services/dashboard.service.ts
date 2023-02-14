@@ -22,6 +22,17 @@ export class DashboardService {
 
   getResumesByUser(): Observable<Resume>{
     const userLoggedIn = this.authService.getUserLoggedIn();
-    return this._http.getList(`${this.url}/${userLoggedIn?.id}`);
+    return this._http.getList(`${this.url}/${userLoggedIn?.userId}`);
+  }
+
+  getResumes() {
+    return this._http.getList(`${this.url}/resumes`);
+  }
+
+  deleteResumeByid(id: number) { 
+    return this._http.deleteSingle(`${this.url}/resumes/${id}`);
+  }
+  updateResumeByid(id: number, resume: Resume) {
+    return this._http.updateData(`${this.url}/resumes/${id}`, resume)
   }
 }
