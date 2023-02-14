@@ -12,6 +12,8 @@ public interface ResumeService {
 
     List<ResumeEntity> getResumes();
 
+    List<ResumeEntity> getUserResume(String id);
+
     ResumeEntity getResume(String id);
 
     void deleteResume(String id);

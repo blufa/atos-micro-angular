@@ -5,13 +5,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 
 @Document(collection = "candidates")
 public class CandidateEntity {
     @Id
     private String id;
-    private String userId;
     private String address;
     private LocalDate dob;
     private String email;
@@ -20,13 +20,12 @@ public class CandidateEntity {
     private String phoneNumber;
     private String occupation;
     private String photo;
-    private Map<String, String> contactLinks;
+    private List<String> contactLinks;
 
-    public CandidateEntity(String id, String userId, String address, LocalDate dob, String email, String firstName,
+    public CandidateEntity(String id, String address, LocalDate dob, String email, String firstName,
             String lastName,
-            String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
+            String phoneNumber, String occupation, String photo, List<String> contactLinks) {
         this.id = id;
-        this.userId = userId;
         this.address = address;
         this.dob = dob;
         this.email = email;
@@ -47,14 +46,6 @@ public class CandidateEntity {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getAddress() {
@@ -126,11 +117,11 @@ public class CandidateEntity {
         this.photo = photo;
     }
 
-    public Map<String, String> getContactLinks() {
+    public List<String> getContactLinks() {
         return contactLinks;
     }
 
-    public void setContactLinks(Map<String, String> contactLinks) {
+    public void setContactLinks(List<String> contactLinks) {
         this.contactLinks = contactLinks;
     }
 }
