@@ -11,10 +11,19 @@ export class TopbarComponent implements OnInit {
   links: Array<Link>;
   authLinks: Array<Link>;
   isAuth: boolean;
-  constructor(private _authService: AuthService) {}
+  constructor(private authService: AuthService) {
+
+  }
 
   ngOnInit(): void {
-    this.isAuth = false;
+    this.authService._isUserLogged.subscribe(() => {
+      this.generateLinks();
+    });
+
+    this.generateLinks();
+  }
+
+  generateLinks() {
     this.links = [
       {
         label: 'Acceuil',
@@ -24,30 +33,30 @@ export class TopbarComponent implements OnInit {
       },
       {
         label: 'Mes Cvs',
-        url: '',
+        url: 'dashboard',
         icon: 'bx bx-id-card text-xl',
-        visible: this._authService.isLoggedIn(),
+        visible: this.authService.isLoggedIn(),
       },
-    ]
-    this.authLinks = [
+    ];
 
+    this.authLinks = [
       {
         label: 'Se connecter',
-        url: 'auth/sing-in',
+        url: 'auth/sign-in',
         icon: 'bx bx-log-in-circle text-xl',
-        visible: !this._authService.isLoggedIn(),
+        visible: !this.authService.isLoggedIn(),
       },
       {
         label: 'S\'inscrire',
-        url: 'auth/sing-up',
+        url: 'auth/sign-up',
         icon: 'bx bx-user-plus text-xl',
-        visible: !this._authService.isLoggedIn(),
+        visible: !this.authService.isLoggedIn(),
       },
       {
         label: 'Se déconnecter',
-        url: '',
+        url: 'logout',
         icon: 'bx bx-log-out-circle text-xl',
-        visible: this._authService.isLoggedIn(),
+        visible: this.authService.isLoggedIn(),
       },
     ]
   }

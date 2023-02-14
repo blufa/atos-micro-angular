@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './components/app/app.component';
-import { HearderComponent } from './components/hearder/hearder.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    HearderComponent
+    HeaderComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -7,14 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class AuthController implements AuthApi {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
     private final AuthService _service;

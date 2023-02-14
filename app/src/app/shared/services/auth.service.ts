@@ -1,10 +1,9 @@
-import { User } from '../interfaces/user';
 import { HttpService } from './http.service';
 import { NotificationService } from './notification.service';
 import { UserLoggedIn } from '../interfaces/user-logged-in';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
 
 interface IResponse {
@@ -13,12 +12,25 @@ interface IResponse {
   message: string;
 }
 
+interface IResponseLog {
+  status: number;
+  userLoggedIn: UserLoggedIn,
+  message: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private readonly USER_INFOS = 'USER_INFOS';
-  private readonly url = 'user-service/api/v1/auth';
+  private readonly url = 'api/v1/auth';
+
+  private isUserLogged = new Subject<boolean>();
+  _isUserLogged = this.isUserLogged.asObservable();
+
+  setIsUserLogged() {
+    this.isUserLogged.next(this.isLoggedIn());
+  }
 
   constructor(
     private _http: HttpService,
@@ -29,11 +41,14 @@ export class AuthService {
   login = (data: { email: string, password: string }): Observable<boolean> => {
     return this._http.addData(`${this.url}/login`, data)
       .pipe(
-        tap((res: IResponse) => {
-          this.doLoginUser(res.data);
-          this._notify.success(`Bienvenue ${res.data.firstName} ${res.data.lastName} !`, "Success : ");
+        tap((res: IResponseLog) => {
+          this.doLoginUser(res.userLoggedIn);
+          this._notify.success(`Bienvenue ${res.userLoggedIn.firstName} ${res.userLoggedIn.lastName} !`, "Success : ");
         }),
-        map(() => true),
+        map(() => {
+          this.setIsUserLogged();
+          return true;
+        }),
         catchError(error => {
           let message = 'Email ou mot de passe incorrect !'
           if (error.status === 0) {
@@ -52,16 +67,21 @@ export class AuthService {
     return this._http.addData(`${this.url}/register`, data)
       .pipe(
         tap((res: IResponse) => {
+
+
           this.doLoginUser(res.data);
           this._notify.success(`Bienvenue ${res.data.firstName} ${res.data.lastName} !`, "Success : ");
         }),
-        map(()=>true),
+        map(() => {
+          this.setIsUserLogged();
+          return true;
+        }),
         catchError(error => {
           let message = 'Email ou mot de passe incorrect !'
-          if(error.status === 0){ 
+          if (error.status === 0) {
             message = "Serveur indisponible, veillez contactez le support !";
           }
-          else{ 
+          else {
             message = error?.error?.error ? error?.error?.error : "Connexion échouée, u;ne erreur est survenue"
           }
           console.log(error);
@@ -71,20 +91,33 @@ export class AuthService {
   }
 
   logout = (): Observable<boolean> => {
-    return this._http.addData(`${this.url}/logout`, {})
+    const userLogs = this.getUserLoggedIn();
+    const data = {
+      userId: userLogs?.userId,
+      accessToken: userLogs?.accessToken,
+      refreshToken: userLogs?.refreshToken
+    }
+
+    return this._http.addData(`${this.url}/logout`, data)
       .pipe(
         tap(() => {
           this.doLogoutUser();
           this._router.navigateByUrl('/').then()
         }),
-        map(() => true),
+        map(() => {
+          this.setIsUserLogged();
+          return true;
+        }),
         catchError(error => {
           console.log(error)
           return of(false);
         }));
   }
 
-  isLoggedIn = (): boolean => { return !!this.getAccessToken(); }
+  isLoggedIn = (): boolean => {
+    if (this.getAccessToken() == undefined) return false
+    else return true
+  }
 
   refreshToken = (): Observable<{ userId: string, accessToken: string, refreshToken: string }> => {
     return this._http.addData(`${this.url}/refresh`, { token: this.getRefreshToken() })
