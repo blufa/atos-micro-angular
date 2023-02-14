@@ -1,22 +1,30 @@
-package atos.sn.cvservice.dto;
+package atos.sn.cvservice.entities;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 
-public class UserDTO {
+@Document(collection = "candidates")
+public class CandidateEntity {
+    @Id
     private String id;
     private String address;
-    private String dob;
+    private LocalDate dob;
     private String email;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String occupation;
     private String photo;
-    private Map<String, String> contactLinks;
+    private List<String> contactLinks;
 
-    public UserDTO(String id, String address, String dob, String email, String firstName, String lastName,
-            String password, String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
+    public CandidateEntity(String id, String address, LocalDate dob, String email, String firstName,
+            String lastName,
+            String phoneNumber, String occupation, String photo, List<String> contactLinks) {
         this.id = id;
         this.address = address;
         this.dob = dob;
@@ -29,7 +37,7 @@ public class UserDTO {
         this.contactLinks = contactLinks;
     }
 
-    public UserDTO() {
+    public CandidateEntity() {
     }
 
     public String getId() {
@@ -48,15 +56,16 @@ public class UserDTO {
         this.address = address;
     }
 
-    public String getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob.toString();
+    public void setDob(String dob) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.dob = LocalDate.parse(dob, dateTimeFormatter);
     }
 
-    public void setDob(String dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
@@ -108,11 +117,11 @@ public class UserDTO {
         this.photo = photo;
     }
 
-    public Map<String, String> getContactLinks() {
+    public List<String> getContactLinks() {
         return contactLinks;
     }
 
-    public void setContactLinks(Map<String, String> contactLinks) {
+    public void setContactLinks(List<String> contactLinks) {
         this.contactLinks = contactLinks;
     }
 }

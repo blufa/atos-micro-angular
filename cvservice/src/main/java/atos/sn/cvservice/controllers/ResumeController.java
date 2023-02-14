@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import atos.sn.cvservice.dto.ResumeDTO;
@@ -17,32 +18,38 @@ import atos.sn.cvservice.entities.ResumeEntity;
 import atos.sn.cvservice.services.ResumeService;
 
 @RestController
+@RequestMapping(value = "/api/v1")
 @CrossOrigin(origins = "*")
 public class ResumeController {
     @Autowired
     private ResumeService resumeService;
 
-    @PostMapping("/resumes")
+    @PostMapping("/resume")
     public ResumeDTO addResume(@RequestBody ResumeDTO resumeDTO) {
         return resumeService.addResume(resumeDTO);
     }
 
-    @PutMapping("/resumes/{id}")
+    @PutMapping("/resume/{id}")
     public ResumeDTO editResume(@PathVariable String id, @RequestBody ResumeDTO resumeDTO) {
         return resumeService.editResume(resumeDTO, id);
     }
 
-    @GetMapping("/resumes")
+    @GetMapping("/resume")
     public List<ResumeEntity> getResumes() {
         return resumeService.getResumes();
     }
 
-    @GetMapping("/resumes/{id}")
+    @GetMapping("/resume/{id}")
     public ResumeEntity getResume(@PathVariable String id) {
         return resumeService.getResume(id);
     }
 
-    @DeleteMapping("/resumes/{id}")
+    @GetMapping("/resume/user/{id}")
+    public List<ResumeEntity> getUserResume(@PathVariable String id) {
+        return resumeService.getUserResume(id);
+    }
+
+    @DeleteMapping("/resume/{id}")
     public void deleteResume(@PathVariable String id) {
         resumeService.deleteResume(id);
     }

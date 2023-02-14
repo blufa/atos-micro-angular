@@ -1,35 +1,8 @@
-port: 8082
-
-security:
-  basic:
-    enabled: false
-
-<<<<<<< HEAD
 spring:
-  applications:
-    name: user-service
-
-  #data:
-    #mongodb:
-      #authentication-database: admin
-      #host: localhost
-      #database: database_cv
-      #port: 27017
-      #username: root
-      #password: root
-
-jwt:
-  accessTokenSecret: _@tos2022
-  refreshTokenSecret: _!-@tos2022
-  accessTokenExpirationMinutes: 5
-  refreshTokenExpirationDays: 30
-=======
-  spring:
-    applications:
+  security:
+    basic:
+      enabled: false
+    host: localhost
+    port: 8082
+  application:
     name: userservice
-
->>>>>>> refs/remotes/origin/develop
-
-
-
-

@@ -33,13 +33,13 @@ export class AuthService {
           this.doLoginUser(res.data);
           this._notify.success(`Bienvenue ${res.data.firstName} ${res.data.lastName} !`, "Success : ");
         }),
-        map(()=>true),
+        map(() => true),
         catchError(error => {
           let message = 'Email ou mot de passe incorrect !'
-          if(error.status === 0){ 
+          if (error.status === 0) {
             message = "Serveur indisponible, veillez contactez le support !";
           }
-          else{ 
+          else {
             message = error?.error?.error ? error?.error?.error : "Connexion échouée, u;ne erreur est survenue"
           }
           console.log(error);
@@ -71,13 +71,13 @@ export class AuthService {
   }
 
   logout = (): Observable<boolean> => {
-    return this._http.addData(`${this.url}/logout`,{})
+    return this._http.addData(`${this.url}/logout`, {})
       .pipe(
         tap(() => {
           this.doLogoutUser();
           this._router.navigateByUrl('/').then()
         }),
-        map(()=>true),
+        map(() => true),
         catchError(error => {
           console.log(error)
           return of(false);
@@ -86,38 +86,38 @@ export class AuthService {
 
   isLoggedIn = (): boolean => { return !!this.getAccessToken(); }
 
-  refreshToken = (): Observable<{userId: string, accessToken: string, refreshToken: string }> => {
+  refreshToken = (): Observable<{ userId: string, accessToken: string, refreshToken: string }> => {
     return this._http.addData(`${this.url}/refresh`, { token: this.getRefreshToken() })
       .pipe(
-        tap((res: {userId: string, accessToken: string, refreshToken: string }) => {
-        this.storeAcessToken(res.accessToken);
-      }));
+        tap((res: { userId: string, accessToken: string, refreshToken: string }) => {
+          this.storeAcessToken(res.accessToken);
+        }));
   }
 
-  getAccessToken = (): string|undefined => { 
-    return this.getUserLoggedIn()?.accessToken; 
+  getAccessToken = (): string | undefined => {
+    return this.getUserLoggedIn()?.accessToken;
   }
 
-  getRefreshToken = (): string|undefined => { 
-    return this.getUserLoggedIn()?.refreshToken; 
+  getRefreshToken = (): string | undefined => {
+    return this.getUserLoggedIn()?.refreshToken;
   }
 
-  getUserLoggedIn = (): UserLoggedIn|null => {
+  getUserLoggedIn = (): UserLoggedIn | null => {
     const userInfos = localStorage.getItem(this.USER_INFOS);
 
     if (userInfos) {
       const user: UserLoggedIn = JSON.parse(userInfos);
       return user;
     }
-     return null
+    return null
   }
 
-  private storeAcessToken = (accessToken: string): void => { 
+  private storeAcessToken = (accessToken: string): void => {
     const userInfos = localStorage.getItem(this.USER_INFOS);
     if (userInfos) {
       let user: UserLoggedIn = JSON.parse(userInfos);
-      user = {...user, accessToken: accessToken}
-      localStorage.setItem(this.USER_INFOS, JSON.stringify(user)); 
+      user = { ...user, accessToken: accessToken }
+      localStorage.setItem(this.USER_INFOS, JSON.stringify(user));
     }
   }
 

@@ -2,6 +2,7 @@ package atos.sn.cvservice.entities;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import atos.sn.cvservice.entities.models.AwardsHonors;
 import atos.sn.cvservice.entities.models.Certificate;
@@ -17,7 +18,9 @@ import java.util.List;
 public class ResumeEntity {
     @Id
     private String id;
-    private String candidate;
+    private String userId;
+    @DocumentReference
+    private CandidateEntity candidate;
     private List<Education> education;
     private List<String> leisures;
     private List<Certificate> certifications;
@@ -27,10 +30,12 @@ public class ResumeEntity {
     private List<WorkExperience> workExperiences;
     private List<AwardsHonors> awardsHonors;
 
-    public ResumeEntity(String id, String candidate, List<Education> education, List<String> leisures,
+    public ResumeEntity(String id, String userId, CandidateEntity candidate, List<Education> education,
+            List<String> leisures,
             List<Certificate> certifications, List<Skill> skills, List<Reference> references, List<Language> languages,
             List<WorkExperience> workExperiences, List<AwardsHonors> awardsHonors) {
         this.id = id;
+        this.userId = userId;
         this.candidate = candidate;
         this.education = education;
         this.leisures = leisures;
@@ -53,11 +58,19 @@ public class ResumeEntity {
         this.id = id;
     }
 
-    public String getCandidate() {
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public CandidateEntity getCandidate() {
         return candidate;
     }
 
-    public void setCandidate(String candidate) {
+    public void setCandidate(CandidateEntity candidate) {
         this.candidate = candidate;
     }
 

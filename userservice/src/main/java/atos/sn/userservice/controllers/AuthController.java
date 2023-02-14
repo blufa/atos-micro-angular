@@ -22,31 +22,49 @@ public class AuthController implements AuthApi {
     public AuthController(AuthService _service) {
         this._service = _service;
     }
+
     @Override
-    public ResponseEntity<?> login(LoginRequest credentiels) {
-        return null;
+    public ResponseEntity<?> login(LoginRequest credentials) {
+        LOG.info("email: {}, password: {}", credentials.getEmail(), credentials.getPassword());
+        Map<String, Object> map = new LinkedHashMap<>();
+        try {
+            LoginResponse userLoggedIn = this._service.login(credentials);
+            map = Map.of("status", 201, "userLoggedIn", userLoggedIn, "message", "Login successfully");
+            return new ResponseEntity<>(map, HttpStatus.CREATED);
+        } catch (Exception e) {
+            map = Map.of("status", 500, "message", e.getMessage());
+            return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public ResponseEntity<?> register(RegisterRequest credentials) {
-        LOG.info("firstName: {}, lastName: {}, email: {}, password: {}", credentials.getFirstName(), credentials.getLastName(), credentials.getEmail(), credentials.getPassword());
+        LOG.info("firstName: {}, lastName: {}, email: {}, password: {}", credentials.getFirstName(),
+                credentials.getLastName(), credentials.getEmail(), credentials.getPassword());
+
         Map<String, Object> map = new LinkedHashMap<>();
+
         try {
-            if(this._service.existsEmail(credentials.getEmail())) {
+            if (this._service.existsEmail(credentials.getEmail())) {
                 map.put("status", 409);
                 map.put("data", null);
-                map.put("message", "Email "+credentials.getEmail()+" already exists");
+                map.put("message", "Email " + credentials.getEmail() + " already exists");
+
                 return new ResponseEntity<>(map, HttpStatus.CONFLICT);
             }
+
             LoginResponse userLoggedIn = this._service.register(credentials);
+
             map.put("status", 201);
             map.put("data", userLoggedIn);
             map.put("message", "Registration successfully");
+
             return new ResponseEntity<>(map, HttpStatus.CREATED);
         } catch (Exception e) {
             map.put("status", 500);
             map.put("data", null);
             map.put("message", e);
+
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -54,16 +72,19 @@ public class AuthController implements AuthApi {
     @Override
     public ResponseEntity<?> logout(TokenDto token) {
         Map<String, Object> map = new LinkedHashMap<>();
+
         try {
             this._service.logout(token);
             map.put("status", 200);
             map.put("data", null);
             map.put("message", "Logout successfully");
+
             return new ResponseEntity<>(map, HttpStatus.CREATED);
         } catch (Exception e) {
             map.put("status", 500);
             map.put("data", null);
             map.put("message", e);
+
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -73,14 +94,17 @@ public class AuthController implements AuthApi {
         Map<String, Object> map = new LinkedHashMap<>();
         try {
             TokenDto tokens = this._service.refreshToken(token);
+
             map.put("status", 200);
             map.put("data", tokens);
             map.put("message", "Tokens refresh successfully");
+
             return new ResponseEntity<>(map, HttpStatus.CREATED);
         } catch (Exception e) {
             map.put("status", 500);
             map.put("data", null);
             map.put("message", e);
+
             return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

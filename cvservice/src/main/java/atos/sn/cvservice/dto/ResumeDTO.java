@@ -2,6 +2,7 @@ package atos.sn.cvservice.dto;
 
 import java.util.List;
 
+import atos.sn.cvservice.entities.CandidateEntity;
 import atos.sn.cvservice.entities.models.AwardsHonors;
 import atos.sn.cvservice.entities.models.Certificate;
 import atos.sn.cvservice.entities.models.Education;
@@ -12,7 +13,8 @@ import atos.sn.cvservice.entities.models.WorkExperience;
 
 public class ResumeDTO {
     private String id;
-    private String candidate;
+    private String userId;
+    private CandidateEntity candidate;
     private List<Education> education;
     private List<String> leisures;
     private List<Certificate> certifications;
@@ -22,10 +24,12 @@ public class ResumeDTO {
     private List<WorkExperience> workExperiences;
     private List<AwardsHonors> awardsHonors;
 
-    public ResumeDTO(String id, String candidate, List<Education> education, List<String> leisures,
+    public ResumeDTO(String id, String userId, CandidateEntity candidate, List<Education> education,
+            List<String> leisures,
             List<Certificate> certifications, List<Skill> skills, List<Reference> references, List<Language> languages,
             List<WorkExperience> workExperiences, List<AwardsHonors> awardsHonors) {
         this.id = id;
+        this.userId = userId;
         this.candidate = candidate;
         this.education = education;
         this.leisures = leisures;
@@ -48,11 +52,19 @@ public class ResumeDTO {
         this.id = id;
     }
 
-    public String getCandidate() {
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public CandidateEntity getCandidate() {
         return candidate;
     }
 
-    public void setCandidate(String candidate) {
+    public void setCandidate(CandidateEntity candidate) {
         this.candidate = candidate;
     }
 

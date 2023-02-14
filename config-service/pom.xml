@@ -18,7 +18,7 @@
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
 	</properties>
 	<dependencies>
-<!--		start-->
+		<!-- CONFIG DEPENDENCIES -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -31,13 +31,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
-<<<<<<< HEAD
-
-		<!--		end-->
-
-=======
 		<!-- SPRING TEST -->
->>>>>>> refs/remotes/origin/develop
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
