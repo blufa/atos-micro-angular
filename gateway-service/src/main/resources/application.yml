@@ -12,11 +12,11 @@ spring:
         - id: cvservice
           uri: http://localhost:8081
           predicates:
-            - Path=/api/v1/resumes
+            - Path=/api/v1/resume
         - id: cvservice
           uri: http://localhost:8081
           predicates:
-            - Path=/api/v1/resumes/**
+            - Path=/api/v1/resume/**
         - id: cvservice
           uri: http://localhost:8081
           predicates:

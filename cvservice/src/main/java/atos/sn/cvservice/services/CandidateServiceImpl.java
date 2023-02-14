@@ -14,27 +14,27 @@ import atos.sn.cvservice.repositories.CandidateRepository;
 @Service
 public class CandidateServiceImpl implements CandidateService {
     @Autowired
-    private CandidateRepository userRepository;
+    private CandidateRepository candidateRepository;
 
     @Autowired
-    private CandidateMapper userMapper;
+    private CandidateMapper candidateMapper;
 
     @Override
-    public CandidateDTO addCandidate(CandidateDTO userDTO) {
-        CandidateEntity userEntity = userMapper.toEntity(userDTO);
-        CandidateEntity addedCandidateEntity = userRepository.save(userEntity);
-        return userMapper.toDto(addedCandidateEntity);
+    public CandidateDTO addCandidate(CandidateDTO candidateDTO) {
+        CandidateEntity candidateEntity = candidateMapper.toEntity(candidateDTO);
+        CandidateEntity addedCandidateEntity = candidateRepository.save(candidateEntity);
+        return candidateMapper.toDto(addedCandidateEntity);
     }
 
     @Override
     public CandidateDTO editCandidate(CandidateDTO userDTO, String id) {
         // Check if resume exists before editing
-        Optional<CandidateEntity> userEntity = userRepository.findById(id);
+        Optional<CandidateEntity> userEntity = candidateRepository.findById(id);
 
         if (userEntity.isPresent()) {
-            CandidateEntity newCandidateEntity = userMapper.toEntity(userDTO);
-            CandidateEntity savedCandidate = userRepository.save(newCandidateEntity);
-            return userMapper.toDto(savedCandidate);
+            CandidateEntity newCandidateEntity = candidateMapper.toEntity(userDTO);
+            CandidateEntity savedCandidate = candidateRepository.save(newCandidateEntity);
+            return candidateMapper.toDto(savedCandidate);
         }
 
         return new CandidateDTO();
@@ -42,15 +42,15 @@ public class CandidateServiceImpl implements CandidateService {
 
     @Override
     public List<CandidateEntity> getCandidates() {
-        return userRepository.findAll();
+        return candidateRepository.findAll();
     }
 
     @Override
     public CandidateEntity getCandidate(String id) {
-        Optional<CandidateEntity> user = userRepository.findById(id);
+        Optional<CandidateEntity> candidate = candidateRepository.findById(id);
 
-        if (user.isPresent()) {
-            return user.get();
+        if (candidate.isPresent()) {
+            return candidate.get();
         }
 
         return new CandidateEntity();
@@ -58,6 +58,6 @@ public class CandidateServiceImpl implements CandidateService {
 
     @Override
     public void deleteCandidate(String id) {
-        userRepository.deleteById(id);
+        candidateRepository.deleteById(id);
     }
 }

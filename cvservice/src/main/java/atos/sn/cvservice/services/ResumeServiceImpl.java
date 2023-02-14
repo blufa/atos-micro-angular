@@ -98,4 +98,9 @@ public class ResumeServiceImpl implements ResumeService {
         }
     }
 
+    @Override
+    public List<ResumeEntity> getUserResume(String id) {
+        return resumeRepository.findByUserId(id);
+    }
+
 }
