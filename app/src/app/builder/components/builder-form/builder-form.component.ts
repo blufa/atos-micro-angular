@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuilderFormService } from '../../services/builder-form.service';
+import { NotificationService } from '../../../shared/services/notification.service';
 
 @Component({
   selector: 'app-builder-form',
@@ -9,6 +10,7 @@ import { BuilderFormService } from '../../services/builder-form.service';
   styleUrls: ['./builder-form.component.scss']
 })
 export class BuilderFormComponent implements OnInit {
+  id: string;
   candidateForm: FormGroup;
   educationForm: FormGroup;
   leisuresForm: FormGroup;
@@ -21,7 +23,15 @@ export class BuilderFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private builderService: BuilderFormService, private router: Router) { }
+  constructor(
+      private formBuilder: FormBuilder, 
+      private activatedRoute: ActivatedRoute, 
+      private builderService: BuilderFormService, 
+      private router: Router,
+      private notify: NotificationService,
+    ) { 
+
+    }
 
   ngOnInit(): void {
     // get resume id if we're updating
@@ -118,6 +128,16 @@ export class BuilderFormComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if(this.form.valid){
+      this.builderService.saveResume(this.form)
+                          .subscribe({
+                            next: ()=>{
+                              this.notify.success(`Resume ${ this.form.get('id')?.value ? 'updated' : 'added' } successfully`, "Success");
+                              this.router.navigate(['/dashboard'])
+                            },
+                            error: (err) => console.log(err)
+                          })
+    }
     console.log(this.form.value);
   }
 
