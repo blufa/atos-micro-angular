@@ -24,27 +24,32 @@ public class ResumeController {
     @Autowired
     private ResumeService resumeService;
 
-    @PostMapping("/resumes")
+    @PostMapping("/resume")
     public ResumeDTO addResume(@RequestBody ResumeDTO resumeDTO) {
         return resumeService.addResume(resumeDTO);
     }
 
-    @PutMapping("/resumes/{id}")
+    @PutMapping("/resume/{id}")
     public ResumeDTO editResume(@PathVariable String id, @RequestBody ResumeDTO resumeDTO) {
         return resumeService.editResume(resumeDTO, id);
     }
 
-    @GetMapping("/resumes")
+    @GetMapping("/resume")
     public List<ResumeEntity> getResumes() {
         return resumeService.getResumes();
     }
 
-    @GetMapping("/resumes/{id}")
+    @GetMapping("/resume/{id}")
     public ResumeEntity getResume(@PathVariable String id) {
         return resumeService.getResume(id);
     }
 
-    @DeleteMapping("/resumes/{id}")
+    @GetMapping("/resume/user/{id}")
+    public List<ResumeEntity> getUserResume(@PathVariable String id) {
+        return resumeService.getUserResume(id);
+    }
+
+    @DeleteMapping("/resume/{id}")
     public void deleteResume(@PathVariable String id) {
         resumeService.deleteResume(id);
     }

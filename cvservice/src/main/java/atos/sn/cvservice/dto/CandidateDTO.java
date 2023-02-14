@@ -1,11 +1,10 @@
 package atos.sn.cvservice.dto;
 
 import java.time.LocalDate;
-import java.util.Map;
+import java.util.List;
 
 public class CandidateDTO {
     private String id;
-    private String userId;
     private String address;
     private String dob;
     private String email;
@@ -14,12 +13,11 @@ public class CandidateDTO {
     private String phoneNumber;
     private String occupation;
     private String photo;
-    private Map<String, String> contactLinks;
+    private List<String> contactLinks;
 
-    public CandidateDTO(String id, String userId, String address, String dob, String email, String firstName, String lastName,
-            String phoneNumber, String occupation, String photo, Map<String, String> contactLinks) {
+    public CandidateDTO(String id, String address, String dob, String email, String firstName, String lastName,
+            String phoneNumber, String occupation, String photo, List<String> contactLinks) {
         this.id = id;
-        this.userId = userId;
         this.address = address;
         this.dob = dob;
         this.email = email;
@@ -40,14 +38,6 @@ public class CandidateDTO {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getAddress() {
@@ -118,11 +108,11 @@ public class CandidateDTO {
         this.photo = photo;
     }
 
-    public Map<String, String> getContactLinks() {
+    public List<String> getContactLinks() {
         return contactLinks;
     }
 
-    public void setContactLinks(Map<String, String> contactLinks) {
+    public void setContactLinks(List<String> contactLinks) {
         this.contactLinks = contactLinks;
     }
 }
