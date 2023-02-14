@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { IsAuthGuard } from './shared/guards/is-auth.guard';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: "view", loadChildren: () => import("./view/view.module").then(m => m.ViewModule) },
+  { path: 'logout', component: LogoutComponent },
   { path: '**', redirectTo: '/view', pathMatch: 'full' },
 ];
 

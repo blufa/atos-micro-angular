@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { SingInComponent } from './components/sing-in/sing-in.component';
-import { SingUpComponent } from './components/sing-up/sing-up.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 
 @NgModule({
   declarations: [
-    SingInComponent,
-    SingUpComponent,
+    SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     CommonModule,

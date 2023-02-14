@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SingInComponent } from './components/sing-in/sing-in.component';
-import { SingUpComponent } from './components/sing-up/sing-up.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path:'sing-in', component: SingInComponent},
-      { path:'sing-up', component: SingUpComponent},
-      { path: '**', redirectTo: 'sing-in', pathMatch: 'full' },
+      { path: 'sign-in', component: SignInComponent },
+      { path: 'sign-up', component: SignUpComponent },
+      { path: '**', redirectTo: 'sign-in', pathMatch: 'full' },
     ]
   }
 ];

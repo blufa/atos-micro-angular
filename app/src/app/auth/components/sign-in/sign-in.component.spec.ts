@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HearderComponent } from './hearder.component';
+import { SingInComponent } from './sign-in.component';
 
-describe('HearderComponent', () => {
-  let component: HearderComponent;
-  let fixture: ComponentFixture<HearderComponent>;
+describe('SingInComponent', () => {
+  let component: SingInComponent;
+  let fixture: ComponentFixture<SingInComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HearderComponent ]
+      declarations: [ SingInComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HearderComponent);
+    fixture = TestBed.createComponent(SingInComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

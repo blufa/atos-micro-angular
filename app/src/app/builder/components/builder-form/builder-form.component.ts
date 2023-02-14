@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuilderFormService } from '../../services/builder-form.service';
+import { NotificationService } from '../../../shared/services/notification.service';
 
 @Component({
   selector: 'app-builder-form',
@@ -9,19 +10,17 @@ import { BuilderFormService } from '../../services/builder-form.service';
   styleUrls: ['./builder-form.component.scss']
 })
 export class BuilderFormComponent implements OnInit {
-  candidateForm: FormGroup;
-  educationForm: FormGroup;
-  leisuresForm: FormGroup;
-  certificationsForm: FormGroup;
-  skillsForm: FormGroup;
-  referencesForm: FormGroup;
-  languagesForm: FormGroup;
-  workExperiencesForm: FormGroup;
-  awardsHonorsForm: FormGroup;
-
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private builderService: BuilderFormService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private builderService: BuilderFormService,
+    private router: Router,
+    private notify: NotificationService,
+  ) {
+
+  }
 
   ngOnInit(): void {
     // get resume id if we're updating
@@ -42,13 +41,13 @@ export class BuilderFormComponent implements OnInit {
     if (resume != undefined) {
       this.form = this.formBuilder.group({
         candidate: this.formBuilder.group({
-          firstName: ['', [Validators.required, Validators.min(2)]],
-          lastName: ['', [Validators.required, Validators.min(2)]],
+          firstName: ['', [Validators.required, Validators.minLength(2)]],
+          lastName: ['', [Validators.required, Validators.minLength(2)]],
           email: ['', [Validators.required, Validators.email]],
-          address: ['', [Validators.required, Validators.min(3)]],
-          phoneNumber: ['', [Validators.required, Validators.min(9), Validators.max(12)]],
+          address: ['', [Validators.required, Validators.minLength(3)]],
+          phoneNumber: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
           dob: [''],
-          occupation: ['', [Validators.required, Validators.min(5)]],
+          occupation: ['', [Validators.required, Validators.minLength(5)]],
           photoUrl: [''],
           externalLinks: this.formBuilder.array([])
         }),
@@ -96,13 +95,13 @@ export class BuilderFormComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       candidate: this.formBuilder.group({
-        firstName: ['', [Validators.required, Validators.min(2)]],
-        lastName: ['', [Validators.required, Validators.min(2)]],
+        firstName: ['', [Validators.required, Validators.minLength(2)]],
+        lastName: ['', [Validators.required, Validators.minLength(2)]],
         email: ['', [Validators.required, Validators.email]],
-        address: ['', [Validators.required, Validators.min(3)]],
-        phoneNumber: ['', [Validators.required, Validators.min(9), Validators.max(12)]],
+        address: ['', [Validators.required, Validators.minLength(3)]],
+        phoneNumber: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
         dob: [''],
-        occupation: ['', [Validators.required, Validators.min(5)]],
+        occupation: ['', [Validators.required, Validators.minLength(5)]],
         photoUrl: [''],
         externalLinks: this.formBuilder.array([])
       }),
@@ -118,7 +117,33 @@ export class BuilderFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
+    if (this.form.valid) {
+      const paramMap = this.activatedRoute.snapshot.paramMap;
+
+      if (paramMap.has('resumeId')) {
+        const id = paramMap.get('resumeId');
+
+        this.builderService.saveResume(this.form.value, id!)
+          .subscribe({
+            next: () => {
+              this.notify.success(`Resume ${this.form.get('id')?.value ? 'updated' : 'added'} successfully`, "Success");
+              this.router.navigate(['/dashboard'])
+            },
+            error: (err) => console.log(err)
+          })
+
+          return;
+      }
+
+      this.builderService.saveResume(this.form.value)
+        .subscribe({
+          next: () => {
+            this.notify.success(`Resume ${this.form.get('id')?.value ? 'updated' : 'added'} successfully`, "Success");
+            this.router.navigate(['/dashboard'])
+          },
+          error: (err) => console.log(err)
+        })
+    }
   }
 
   getCandidateForm(): FormGroup {

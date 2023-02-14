@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { HttpService } from '../../shared/services/http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuilderFormService {
-  private readonly url = 'cv-service/api/v1';
+  private readonly url = 'api/v1';
   constructor(private _http: HttpService) { }
 
   getResume(id: string): Observable<any> {
-    return this._http.getSingle(`${this.url}/resumes/${id}`);
+    return this._http.getSingle(`${this.url}/resume/${id}`);
   }
 
-  saveResume(resume: any, id?: number) {
-    if (id != undefined) {
-      return this._http.addData(`${this.url}/resumes`, resume);
+  saveResume(resume: any, id?: string) {
+    if (id == undefined) {
+      return this._http.addData(`${this.url}/resume`, resume);
     } else {
-      return this._http.updateData(`${this.url}/resumes/${id}`, resume);
+      return this._http.updateData(`${this.url}/resume/${id}`, resume);
     }
   }
 }
