@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Component } from '@angular/core';
 import { Button } from '../../../shared/interfaces/button';
 import { NotificationService } from '../../../shared/services/notification.service';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-sing-up',
@@ -18,7 +19,8 @@ export class SingUpComponent {
   constructor(
     private fb: FormBuilder,
     private notify: NotificationService,
-    private route: Router
+    private route: Router,
+    private authService: AuthService,
     ) { }
 
     ngOnInit(): void {
@@ -53,7 +55,15 @@ export class SingUpComponent {
    
   
     onSubmit = () => {
-      if(this.singUpForm.valid) {}
+      if(this.singUpForm.valid) {
+        this.authService.register(this.singUpForm.getRawValue())
+                        .subscribe(
+                          {
+                            next: ()=> this.route.navigate(['/dashboard']),
+                          }
+                        )
+      }
+      
     }
 
 }

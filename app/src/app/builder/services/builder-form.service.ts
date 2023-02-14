@@ -7,18 +7,18 @@ import { HttpService } from '../../shared/services/http.service';
   providedIn: 'root'
 })
 export class BuilderFormService {
-
+  private readonly url = 'cv-service/api/v1';
   constructor(private _http: HttpService) { }
 
   getResume(id: string): Observable<any> {
-    return this._http.getSingle(`${environment.apiBaseURL}/resumes/${id}`);
+    return this._http.getSingle(`${this.url}/resumes/${id}`);
   }
 
   saveResume(resume: any, id?: number) {
     if (id != undefined) {
-      return this._http.addData(`${environment.apiBaseURL}/resumes`, resume);
+      return this._http.addData(`${this.url}/resumes`, resume);
     } else {
-      return this._http.updateData(`${environment.apiBaseURL}/resumes/${id}`, resume);
+      return this._http.updateData(`${this.url}/resumes/${id}`, resume);
     }
   }
 }

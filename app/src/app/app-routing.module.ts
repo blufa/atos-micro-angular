@@ -14,12 +14,12 @@ const routes: Routes = [
   { 
     path: "dashboard",
     loadChildren: () => import("./dashboard/dashboard.module").then(m => m.DashboardModule),
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   { 
     path: "builder",
     loadChildren: () => import("./builder/builder.module").then(m => m.BuilderModule),
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   { path: "view", loadChildren: () => import("./view/view.module").then(m => m.ViewModule) },
   { path: '**', redirectTo: '/view', pathMatch: 'full' },

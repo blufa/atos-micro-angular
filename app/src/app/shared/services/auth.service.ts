@@ -18,7 +18,7 @@ interface IResponse {
 })
 export class AuthService {
   private readonly USER_INFOS = 'USER_INFOS';
-  private readonly url = 'auth';
+  private readonly url = 'user-service/api/v1/auth';
 
   constructor(
     private _http: HttpService,
@@ -26,8 +26,30 @@ export class AuthService {
     private _router: Router
   ) { }
 
-  login = (data: { login: string, password: string }): Observable<boolean> => {
+  login = (data: { email: string, password: string }): Observable<boolean> => {
     return this._http.addData(`${this.url}/login`, data)
+      .pipe(
+        tap((res: IResponse) => {
+          this.doLoginUser(res.data);
+          this._notify.success(`Bienvenue ${res.data.firstName} ${res.data.lastName} !`, "Success : ");
+        }),
+        map(()=>true),
+        catchError(error => {
+          let message = 'Email ou mot de passe incorrect !'
+          if(error.status === 0){ 
+            message = "Serveur indisponible, veillez contactez le support !";
+          }
+          else{ 
+            message = error?.error?.error ? error?.error?.error : "Connexion échouée, u;ne erreur est survenue"
+          }
+          console.log(error);
+          this._notify.error(message, "Erreur : ");
+          return of(false);
+        }));
+  }
+
+  register = (data: { firstName: string, lastName: string, email: string, password: string }): Observable<boolean> => {
+    return this._http.addData(`${this.url}/register`, data)
       .pipe(
         tap((res: IResponse) => {
           this.doLoginUser(res.data);
