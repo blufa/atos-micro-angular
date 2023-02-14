@@ -5,9 +5,7 @@ import { BuilderRoutingModule } from './builder-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { BuilderFormComponent } from './components/builder-form/builder-form.component';
 import { CandidateFormComponent } from './components/candidate-form/candidate-form.component';
-import { EducationFormComponent } from './components/education-form/education-form.component';
 import { LeisuresFormComponent } from './components/leisures-form/leisures-form.component';
-import { CertificationsFormComponent } from './components/certifications-form/certifications-form.component';
 import { SkillsFormComponent } from './components/skills-form/skills-form.component';
 import { ReferencesFormComponent } from './components/references-form/references-form.component';
 import { LanguagesFormComponent } from './components/languages-form/languages-form.component';
@@ -15,6 +13,8 @@ import { AwardsHonorsFormComponent } from './components/awards-honors-form/award
 import { WorkExperiencesFormComponent } from './components/work-experiences-form/work-experiences-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CertificationsFormComponent } from './components/certifications-form/certifications-form.component';
+import { EducationFormComponent } from './components/education-form/education-form.component';
 
 
 @NgModule({
