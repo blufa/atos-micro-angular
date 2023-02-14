@@ -19,7 +19,6 @@ import atos.sn.cvservice.services.ResumeService;
 
 @RestController
 @RequestMapping(value = "/api/v1")
-@CrossOrigin(origins = "*")
 public class ResumeController {
     @Autowired
     private ResumeService resumeService;

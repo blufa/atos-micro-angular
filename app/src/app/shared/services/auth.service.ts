@@ -9,7 +9,7 @@ import { tap, map, catchError } from 'rxjs/operators';
 
 interface IResponse {
   status: number;
-  data: UserLoggedIn,
+  userLoggedIn: UserLoggedIn,
   message: string;
 }
 
@@ -18,7 +18,7 @@ interface IResponse {
 })
 export class AuthService {
   private readonly USER_INFOS = 'USER_INFOS';
-  private readonly url = 'user-service/api/v1/auth';
+  private readonly url = 'api/v1/auth';
 
   constructor(
     private _http: HttpService,
@@ -30,8 +30,9 @@ export class AuthService {
     return this._http.addData(`${this.url}/login`, data)
       .pipe(
         tap((res: IResponse) => {
-          this.doLoginUser(res.data);
-          this._notify.success(`Bienvenue ${res.data.firstName} ${res.data.lastName} !`, "Success : ");
+          console.log(res)
+          this.doLoginUser(res.userLoggedIn);
+          this._notify.success(`Bienvenue ${res.userLoggedIn.firstName} ${res.userLoggedIn.lastName} !`, "Success : ");
         }),
         map(() => true),
         catchError(error => {
@@ -52,8 +53,8 @@ export class AuthService {
     return this._http.addData(`${this.url}/register`, data)
       .pipe(
         tap((res: IResponse) => {
-          this.doLoginUser(res.data);
-          this._notify.success(`Bienvenue ${res.data.firstName} ${res.data.lastName} !`, "Success : ");
+          this.doLoginUser(res.userLoggedIn);
+          this._notify.success(`Bienvenue ${res.userLoggedIn.firstName} ${res.userLoggedIn.lastName} !`, "Success : ");
         }),
         map(()=>true),
         catchError(error => {

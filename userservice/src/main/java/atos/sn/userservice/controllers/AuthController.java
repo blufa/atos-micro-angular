@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "*")
+// @CrossOrigin(origins = "*")
 public class AuthController implements AuthApi {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
     private final AuthService _service;

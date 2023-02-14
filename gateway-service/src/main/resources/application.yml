@@ -54,9 +54,9 @@ spring:
           predicates:
             - Path=/api/v1/user/**
       globalcors:
-        corsConfigurations:
+        cors-configurations:
           "[/**]":
-            allowedOrigins: "http://localhost:9999"
+            allowedOrigins: "http://localhost:4200"
             allowedHeaders: "*"
             allowedMethods:
               - GET
