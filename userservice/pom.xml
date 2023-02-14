@@ -58,6 +58,8 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+<!--start-->
 		<!-- CONFIG SERVER DEPENDENCIES-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -71,6 +73,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
+<!--End-->
 		<!-- SPRING TEST DEPENDENCIES -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

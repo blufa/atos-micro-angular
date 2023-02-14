@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { NotificationService } from '../../../shared/services/notification.service';
 import { Router } from '@angular/router';
 import { Button } from '../../../shared/interfaces/button';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-sing-in',
@@ -18,7 +19,8 @@ export class SingInComponent {
   constructor(
     private fb: FormBuilder,
     private notify: NotificationService,
-    private route: Router
+    private route: Router,
+    private authService: AuthService,
     ) { }
 
     ngOnInit(): void {
@@ -46,7 +48,15 @@ export class SingInComponent {
       this.showPassword = !this.showPassword
     }
     onSubmit = () => {
-      if(this.singInForm.valid){}
+      if(this.singInForm.valid){
+        this.authService.login(this.singInForm.getRawValue())
+                        .subscribe(
+                          {
+                            next: ()=> this.route.navigate(['/dashboard']),
+                          }
+                        )
+
+      }
     }
 
 }
